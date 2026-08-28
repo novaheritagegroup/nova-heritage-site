@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Heritage Group — Bookkeeping, Analytics & AI</title>
+  <meta name="description" content="Nova Heritage Group LLC — QuickBooks bookkeeping for growing businesses, plus analytics and AI services. Remote US. Kansas City based. ProAdvisor Level 2.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0b1f33;
+      --ink-soft: #1a3348;
+      --slate: #5a6b7a;
+      --mist: #e8eef3;
+      --paper: #f4f7fa;
+      --white: #ffffff;
+      --teal: #0d7377;
+      --teal-deep: #095c5f;
+      --teal-glow: rgba(13, 115, 119, 0.14);
+      --line: #d4dde6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+      font-size: 17px;
+    }
+    a { color: var(--teal); }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+
+    /* Motion */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(2%, -1%, 0) scale(1.03); }
+    }
+    .rise { animation: rise 0.8s ease both; }
+    .rise-delay { animation: rise 0.9s ease 0.15s both; }
+    .rise-delay-2 { animation: rise 0.9s ease 0.28s both; }
+
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(244, 247, 250, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    header.scrolled { border-bottom-color: var(--line); }
+    header .wrap {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; gap: 16px; flex-wrap: wrap;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: var(--ink);
+      font-weight: 700; letter-spacing: 0.02em; font-size: 0.95rem;
+    }
+    .brand img { width: 40px; height: 40px; border-radius: 8px; }
+    .brand em { font-style: normal; color: var(--teal); }
+    nav { display: flex; gap: 8px 20px; flex-wrap: wrap; align-items: center; }
+    nav a {
+      color: var(--slate); text-decoration: none; font-size: 0.92rem; font-weight: 500;
+    }
+    nav a:hover { color: var(--teal); }
+    nav .nav-cta {
+      background: var(--ink); color: #fff !important;
+      padding: 8px 14px; border-radius: 6px; font-size: 0.88rem;
+    }
+    nav .nav-cta:hover { background: var(--teal-deep); }
+
+    /* Hero — one composition, brand-first, full-bleed atmosphere */
+    .hero {
+      position: relative;
+      min-height: min(92vh, 760px);
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+      color: #fff;
+      background: var(--ink);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(13, 115, 119, 0.45), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(26, 51, 72, 0.9), transparent 50%),
+        linear-gradient(160deg, #07131f 0%, #0b1f33 45%, #0d3a42 100%);
+      animation: drift 18s ease-in-out infinite;
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 85%);
+    }
+    .hero .wrap {
+      position: relative; z-index: 1;
+      padding: 48px 0 72px;
+    }
+    .hero-brand {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      max-width: 14ch;
+    }
+    .hero-brand span { color: #7ec8c4; }
+    .hero h1 {
+      font-family: "DM Sans", sans-serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      font-weight: 500;
+      max-width: 34ch;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 12px;
+    }
+    .hero .lede {
+      max-width: 42ch;
+      color: rgba(255,255,255,0.68);
+      font-size: 1.02rem;
+      margin-bottom: 28px;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .cta {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      padding: 13px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta:hover { background: var(--teal-deep); transform: translateY(-1px); }
+    .cta.ghost {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: #fff;
+    }
+    .cta.ghost:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+    .cta.dark { background: var(--ink); }
+    .cta.dark:hover { background: var(--ink-soft); }
+
+    .trust {
+      padding: 18px 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+    .trust .wrap {
+      display: flex; flex-wrap: wrap; gap: 12px 28px;
+      font-size: 0.9rem; color: var(--slate); font-weight: 500;
+    }
+    .trust strong { color: var(--ink); font-weight: 600; }
+
+    section { padding: 72px 0; }
+    section.alt { background: var(--white); }
+    h2 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(1.85rem, 3vw, 2.35rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .sub { color: var(--slate); max-width: 54ch; margin-bottom: 36px; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 800px) {
+      .split { grid-template-columns: 1fr; }
+      nav .nav-cta { display: none; }
+    }
+
+    .service-block { padding: 8px 0 28px; border-bottom: 1px solid var(--line); }
+    .service-block:last-child { border-bottom: none; padding-bottom: 0; }
+    .service-block h3 {
+      font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .service-block h3 .tag {
+      font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--teal);
+      background: var(--teal-glow); padding: 3px 8px; border-radius: 4px;
+    }
+    .service-block ul { list-style: none; margin-top: 12px; }
+    .service-block li {
+      position: relative; padding-left: 18px; margin-bottom: 7px;
+      color: var(--slate); font-size: 0.98rem;
+    }
+    .service-block li::before {
+      content: ""; position: absolute; left: 0; top: 0.55em;
+      width: 7px; height: 7px; border-radius: 50%; background: var(--teal);
+    }
+
+    .aside-note {
+      background: var(--ink);
+      color: #fff;
+      padding: 28px 26px;
+      border-radius: 4px;
+    }
+    .aside-note h3 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.45rem; font-weight: 400; margin-bottom: 10px;
+    }
+    .aside-note p { color: rgba(255,255,255,0.72); font-size: 0.95rem; margin-bottom: 18px; }
+    .aside-note .badge {
+      display: inline-block; font-size: 0.8rem; font-weight: 600;
+      background: var(--teal); padding: 6px 10px; border-radius: 4px; margin-bottom: 14px;
+    }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 800px) { .tiers { grid-template-columns: 1fr; } }
+    .tier {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 22px 20px;
+      border-radius: 4px;
+    }
+    .tier.featured {
+      background: var(--white);
+      border-color: var(--teal);
+      box-shadow: 0 0 0 1px var(--teal);
+    }
+    .tier h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .tier .price {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.85rem; margin: 8px 0 6px;
+    }
+    .tier .price span { font-size: 0.95rem; color: var(--slate); font-family: "DM Sans", sans-serif; }
+    .tier p { font-size: 0.9rem; color: var(--slate); margin-bottom: 14px; }
+    .tier ul { list-style: none; }
+    .tier li {
+      font-size: 0.9rem; color: var(--ink-soft);
+      padding: 5px 0 5px 16px; position: relative;
+    }
+    .tier li::before { content: "–"; position: absolute; left: 0; color: var(--teal); }
+
+    .addons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+      font-size: 0.95rem;
+      color: var(--slate);
+      margin-bottom: 12px;
+    }
+    @media (max-width: 600px) { .addons { grid-template-columns: 1fr; } }
+    .addons strong { color: var(--ink); }
+    .note { font-size: 0.88rem; color: var(--slate); }
+
+    .steps { counter-reset: step; list-style: none; max-width: 640px; }
+    .steps li {
+      counter-increment: step;
+      padding: 18px 0 18px 58px;
+      position: relative;
+      border-bottom: 1px solid var(--line);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before {
+      content: counter(step);
+      position: absolute; left: 0; top: 18px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--teal); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem;
+    }
+    .steps strong { display: block; margin-bottom: 2px; }
+    .steps span { color: var(--slate); font-size: 0.95rem; }
+
+    .contact {
+      background: var(--ink);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: "";
+      position: absolute; right: -10%; top: -40%;
+      width: 50%; height: 140%;
+      background: radial-gradient(circle, rgba(13,115,119,0.35), transparent 65%);
+      pointer-events: none;
+    }
+    .contact .wrap { position: relative; }
+    .contact h2 { color: #fff; }
+    .contact .sub { color: rgba(255,255,255,0.65); }
+    .contact .mail {
+      display: inline-block;
+      color: #9fddd9;
+      font-size: 1.25rem;
+      text-decoration: none;
+      margin: 8px 0 6px;
+      font-weight: 500;
+    }
+    .contact .mail:hover { color: #fff; }
+    .contact .meta { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 18px; }
+
+    footer {
+      padding: 22px 0;
+      font-size: 0.85rem;
+      color: var(--slate);
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+
+<header id="topbar">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img src="assets/nova-heritage-logo.png" alt="Nova Heritage Group" width="40" height="40">
+      NOVA <em>HERITAGE</em> GROUP
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How it works</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="hero-brand rise">Nova <span>Heritage</span> Group</p>
+    <h1 class="rise-delay">Monthly books current by the 10th — so you can run the business, not the backlog.</h1>
+    <p class="lede rise-delay-2">QuickBooks Online bookkeeping for US SMBs, with analytics and AI services when you need clearer numbers and faster workflows.</p>
+    <div class="cta-row rise-delay-2">
+      <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a 15-minute fit call</a>
+      <a class="cta ghost" href="#pricing">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div><strong>QBO ProAdvisor Level 2</strong></div>
+    <div>Remote across the U.S.</div>
+    <div>Based in Kansas City metro</div>
+    <div>Accounting + economics background</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap split">
+    <div>
+      <h2>What we do</h2>
+      <p class="sub">Books first. Analytics and AI as clear offerings when you want more than a clean close.</p>
+
+      <div class="service-block">
+        <h3>Bookkeeping <span class="tag">Primary</span></h3>
+        <p style="color:var(--slate);font-size:0.98rem;">Catch-up in about a week when scoped, then a recurring monthly close. You get tax-ready books and a short note on what changed.</p>
+        <ul>
+          <li>QBO cleanup, catch-up, and ongoing monthly close</li>
+          <li>Reconciliations, P&amp;L, and balance sheet by the 10th</li>
+          <li>Month-end note + light books KPIs on Standard+</li>
+          <li>Payroll processing and sales tax filing as add-ons</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h3>Data analytics <span class="tag">Product</span></h3>
+        <p style="color:var(--slate);font-size:0.98rem;">Dashboards and KPI packs operators actually open — build once, or maintain monthly.</p>
+        <ul>
+          <li>Dashboard builds and data cleanup</li>
+          <li>Monthly KPI packs and fractional support</li>
+          <li>Forecasting and scenario work when scoped</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h3>AI services <span class="tag">Product</span></h3>
+        <p style="color:var(--slate);font-size:0.98rem;">Scoped projects that cut busywork in finance and ops — sold as its own line, not a buzzword on bookkeeping.</p>
+        <ul>
+          <li>Workflow automation and reporting assistants</li>
+          <li>Fixed-scope builds with human review</li>
+          <li>Clear deliverable, fixed fee, 50% to start</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside class="aside-note">
+      <div class="badge">QuickBooks Online · Level 2</div>
+      <h3>Built for owners who are done guessing.</h3>
+      <p>You work directly with the person doing the work. AI speeds drafts and cleanup; every client deliverable is human-reviewed before it hits your inbox.</p>
+      <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Schedule a fit call</a>
+    </aside>
+  </div>
+</section>
+
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <h2>Straightforward pricing</h2>
+    <p class="sub">Transparent ranges — exact fee after we review your QuickBooks file. Month-to-month; no long-term lock-in.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <h3>Essential</h3>
+        <div class="price">$300–350 <span>/mo</span></div>
+        <p>Simple, accurate bookkeeping every month.</p>
+        <ul>
+          <li>Monthly bank &amp; card reconciliation</li>
+          <li>Expense categorization with bank rules</li>
+          <li>Monthly P&amp;L and balance sheet</li>
+        </ul>
+        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Best for freelancers and solo owners with straightforward books.</p>
+      </div>
+      <div class="tier featured">
+        <h3>Professional</h3>
+        <div class="price">$350–450 <span>/mo</span></div>
+        <p>Clear numbers that support growth. <strong style="color:var(--teal);font-weight:600;">Most popular.</strong></p>
+        <ul>
+          <li>Everything in Essential</li>
+          <li>Close by the 10th</li>
+          <li>Month-end note on what changed</li>
+          <li>Light AR &amp; AP tracking</li>
+          <li>CPA-friendly monthly package</li>
+        </ul>
+        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Best for growing businesses with multiple accounts.</p>
+      </div>
+      <div class="tier">
+        <h3>Premium</h3>
+        <div class="price">$450–750 <span>/mo</span></div>
+        <p>Hands-on support and advanced reporting.</p>
+        <ul>
+          <li>Everything in Professional</li>
+          <li>Custom reports &amp; light KPI dashboards</li>
+          <li>Loans, accrual, or higher complexity</li>
+          <li>Priority turnaround</li>
+        </ul>
+        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Best for established or multi-account businesses.</p>
+      </div>
+    </div>
+
+    <div class="addons">
+      <div><strong>Catch-up / cleanup</strong> — ~0.75× your monthly rate × months behind; ~50% off cleanup when you start monthly</div>
+      <div><strong>Payroll add-on</strong> — +$150–400/mo</div>
+      <div><strong>Sales tax add-on</strong> — +$75–150/mo or per filing</div>
+      <div><strong>Analytics retainer</strong> — $500–1,500/mo · <strong>Projects / AI</strong> — from $2,000</div>
+    </div>
+    <p class="note">Pricing reflects complexity and availability. Cancel anytime with notice. Net 15. Projects: 50% deposit, 50% on delivery. Card fees absorbed into package prices.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">No mystery process. Fit call → fixed proposal → delivery.</p>
+    <ol class="steps">
+      <li><strong>Fit call (15 minutes)</strong><span>We confirm books, analytics, AI — or a clean handoff if we’re not the right fit.</span></li>
+      <li><strong>Fixed-scope proposal + engagement letter</strong><span>What’s included, what’s not, and the price. No open-ended hourly surprises.</span></li>
+      <li><strong>Catch-up (if needed), then monthly rhythm</strong><span>Aim to get current in about a week when scoped; then close by the 10th every month.</span></li>
+      <li><strong>Stay month-to-month</strong><span>Add payroll, sales tax, analytics, or AI when it helps. Raise or pause with notice — no hostage contracts.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let’s get your books off your plate</h2>
+    <p class="sub">Tell us what’s behind and what “done” looks like. We’ll tell you the path and the number.</p>
+    <p style="margin-bottom:16px;">
+      <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a fit call</a>
+    </p>
+    <a class="mail" href="mailto:novaheritagegroup@gmail.com">novaheritagegroup@gmail.com</a>
+    <p class="meta">Nova Heritage Group LLC · Lee's Summit, MO · (856) 718-5880</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Nova Heritage Group LLC. Bookkeeping, analytics, and AI services. Not tax preparation, audit, or legal advice.</div>
+</footer>
+
+<script>
+  const bar = document.getElementById("topbar");
+  const onScroll = () => bar.classList.toggle("scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
+</body>
+</html>
