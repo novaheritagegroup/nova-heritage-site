@@ -3,8 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova Heritage Group — Bookkeeping, Analytics & AI</title>
-  <meta name="description" content="Nova Heritage Group LLC — QuickBooks bookkeeping for growing businesses, plus analytics and AI services. Remote US. Kansas City based. ProAdvisor Level 2.">
+  <title>Nova Heritage Group | Accounting &amp; Tax in the Kansas City Metro Area</title>
+  <meta name="description" content="Monthly QuickBooks bookkeeping, payroll, sales tax, and business and personal tax preparation with e-filing. Fixed fees for small businesses, contractors, and individuals across the Kansas City metro area and nationwide. Based in Lee's Summit, MO.">
+  <link rel="canonical" href="https://novaheritagegroupllc.com/">
+  <link rel="icon" type="image/png" href="assets/nova-heritage-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nova Heritage Group | Accounting &amp; Tax in the Kansas City Metro Area">
+  <meta property="og:description" content="Books closed by the 10th, payroll and sales tax handled, and your returns prepared and e-filed. Fixed fees, one firm.">
+  <meta property="og:url" content="https://novaheritagegroupllc.com/">
+  <meta property="og:image" content="https://novaheritagegroupllc.com/assets/nova-heritage-logo.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "Nova Heritage Group LLC",
+    "url": "https://novaheritagegroupllc.com/",
+    "logo": "https://novaheritagegroupllc.com/assets/nova-heritage-logo.png",
+    "email": "novaheritagegroup@gmail.com",
+    "telephone": "+1-856-718-5880",
+    "address": { "@type": "PostalAddress", "addressLocality": "Lee's Summit", "addressRegion": "MO", "addressCountry": "US" },
+    "areaServed": ["Kansas City metropolitan area", "Lee's Summit, MO", "United States"],
+    "priceRange": "$$",
+    "description": "Bookkeeping, payroll, sales tax, and tax preparation for small businesses and contractors."
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -318,6 +340,42 @@
       background: var(--paper);
       border-top: 1px solid var(--line);
     }
+  
+    .tier .tag-new {
+      display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+      color:#fff; background:var(--teal); padding:3px 8px; border-radius:4px; margin-bottom:8px;
+    }
+    .tier.bundle { background: var(--ink); color:#fff; border-color: var(--ink); }
+    .tier.bundle p, .tier.bundle .price span { color: rgba(255,255,255,0.7); }
+    .tier.bundle li { color: rgba(255,255,255,0.88); }
+    .tier.bundle li::before { color:#7ec8c4; }
+    .tier.bundle .fit { color: rgba(255,255,255,0.6) !important; }
+    .tiers.four { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 980px) { .tiers.four { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .tiers.four { grid-template-columns: 1fr; } }
+    .price-group { margin: 8px 0 14px; font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); }
+    .tax-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-bottom: 16px; }
+    @media (max-width: 800px) { .tax-grid { grid-template-columns: 1fr; } }
+    .tax-card { border:1px solid var(--line); background:var(--paper); padding:18px 20px; border-radius:4px; }
+    .tax-card h3 { font-size:1rem; margin-bottom:2px; }
+    .tax-card .price { font-family:"Instrument Serif", Georgia, serif; font-size:1.55rem; margin:4px 0; }
+    .tax-card p { font-size:0.88rem; color:var(--slate); }
+    .trades { display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px 32px; margin-top: 8px; }
+    @media (max-width: 700px) { .trades { grid-template-columns: 1fr; } }
+    .trades div { padding: 16px 0; border-top: 1px solid var(--line); }
+    .trades strong { display:block; margin-bottom:4px; }
+    .trades span { color: var(--slate); font-size: 0.95rem; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin: 4px 0 28px; }
+    .chips span { font-size:0.85rem; font-weight:500; padding:6px 12px; border-radius:999px; background:var(--teal-glow); color:var(--teal-deep); }
+    .faq { max-width: 760px; }
+    .faq details { border-bottom:1px solid var(--line); padding: 16px 0; }
+    .faq summary { cursor:pointer; font-weight:600; list-style:none; display:flex; justify-content:space-between; gap:16px; }
+    .faq summary::-webkit-details-marker { display:none; }
+    .faq summary::after { content:"+"; color:var(--teal); font-weight:700; }
+    .faq details[open] summary::after { content:"–"; }
+    .faq details p { color: var(--slate); margin-top: 10px; font-size: 0.97rem; }
+    .season { display:inline-block; font-size:0.82rem; font-weight:600; color:#0b1f33; background:#9fddd9; padding:5px 10px; border-radius:4px; margin-bottom:18px; }
+    footer .wrap { display:flex; flex-direction:column; gap:6px; }
   </style>
 </head>
 <body>
@@ -330,9 +388,9 @@
     </a>
     <nav>
       <a href="#services">Services</a>
+      <a href="#trades">Contractors</a>
       <a href="#pricing">Pricing</a>
-      <a href="#how">How it works</a>
-      <a href="#contact">Contact</a>
+      <a href="#faq">FAQ</a>
       <a class="nav-cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a call</a>
     </nav>
   </div>
@@ -342,8 +400,8 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap">
     <p class="hero-brand rise">Nova <span>Heritage</span> Group</p>
-    <h1 class="rise-delay">Monthly books current by the 10th — so you can run the business, not the backlog.</h1>
-    <p class="lede rise-delay-2">QuickBooks Online bookkeeping for US SMBs, with analytics and AI services when you need clearer numbers and faster workflows.</p>
+    <h1 class="rise-delay">Accounting &amp; tax for small businesses across the Kansas City metro area.</h1>
+    <p class="lede rise-delay-2">Books closed by the 10th. Payroll and sales tax handled. Business and personal returns prepared and e-filed. One firm, fixed fees, no tax-season scramble. Based in Lee's Summit and working with clients anywhere in the U.S.</p>
     <div class="cta-row rise-delay-2">
       <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a 15-minute fit call</a>
       <a class="cta ghost" href="#pricing">See pricing</a>
@@ -353,76 +411,102 @@
 
 <div class="trust">
   <div class="wrap">
-    <div><strong>QBO ProAdvisor Level 2</strong></div>
-    <div>Remote across the U.S.</div>
-    <div>Based in Kansas City metro</div>
-    <div>Accounting + economics background</div>
+    <div><strong>QuickBooks Online ProAdvisor, Level 2</strong></div>
+    <div>B.S. Accounting · M.A. Economics</div>
+    <div>Lee's Summit, MO · Kansas City metro + nationwide</div>
+    <div>Fixed monthly fees · Month-to-month</div>
   </div>
 </div>
 
 <section id="services">
   <div class="wrap split">
     <div>
-      <h2>What we do</h2>
-      <p class="sub">Books first. Analytics and AI as clear offerings when you want more than a clean close.</p>
+      <h2>Everything your numbers need, in one place</h2>
+      <p class="sub">Most owners juggle a bookkeeper, a payroll app, a sales tax login, and someone who does the return in March. We handle all of it, and it all ties out.</p>
 
       <div class="service-block">
-        <h3>Bookkeeping <span class="tag">Primary</span></h3>
-        <p style="color:var(--slate);font-size:0.98rem;">Catch-up in about a week when scoped, then a recurring monthly close. You get tax-ready books and a short note on what changed.</p>
+        <h3>Monthly accounting <span class="tag">Core</span></h3>
+        <p style="color:var(--slate);font-size:0.98rem;">Catch-up in about a week when scoped, then a monthly close you can count on.</p>
         <ul>
-          <li>QBO cleanup, catch-up, and ongoing monthly close</li>
-          <li>Reconciliations, P&amp;L, and balance sheet by the 10th</li>
-          <li>Month-end note + light books KPIs on Standard+</li>
-          <li>Payroll processing and sales tax filing as add-ons</li>
+          <li>QuickBooks Online cleanup, catch-up, and monthly close</li>
+          <li>Bank and card reconciliations; P&amp;L and balance sheet by the 10th</li>
+          <li>A short month-end note on what changed and what to watch</li>
         </ul>
       </div>
 
       <div class="service-block">
-        <h3>Data analytics <span class="tag">Product</span></h3>
-        <p style="color:var(--slate);font-size:0.98rem;">Dashboards and KPI packs operators actually open — build once, or maintain monthly.</p>
+        <h3>Tax preparation &amp; e-filing <span class="tag">Core</span></h3>
+        <p style="color:var(--slate);font-size:0.98rem;">Your business return and your personal return, prepared from books we already keep.</p>
         <ul>
-          <li>Dashboard builds and data cleanup</li>
-          <li>Monthly KPI packs and fractional support</li>
-          <li>Forecasting and scenario work when scoped</li>
+          <li>S-corp (1120-S), partnership (1065), C-corp (1120), and Schedule C</li>
+          <li>Owner and household 1040s, federal and Missouri</li>
+          <li>Electronic filing, plus year-round tax planning check-ins on bundled plans</li>
         </ul>
       </div>
 
       <div class="service-block">
-        <h3>AI services <span class="tag">Product</span></h3>
-        <p style="color:var(--slate);font-size:0.98rem;">Scoped projects that cut busywork in finance and ops — sold as its own line, not a buzzword on bookkeeping.</p>
+        <h3>Payroll &amp; sales tax <span class="tag">Core</span></h3>
         <ul>
-          <li>Workflow automation and reporting assistants</li>
-          <li>Fixed-scope builds with human review</li>
-          <li>Clear deliverable, fixed fee, 50% to start</li>
+          <li>Payroll run through QuickBooks Payroll, posted to your books every cycle</li>
+          <li>Missouri sales tax filings (other states when scoped)</li>
+          <li>1099 preparation for subcontractors</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h3>Data analytics &amp; AI implementation <span class="tag">Growth</span></h3>
+        <p style="color:var(--slate);font-size:0.98rem;">For owners who want more than compliance. Senior analytics experience, sold as its own service line.</p>
+        <ul>
+          <li>Dashboards and monthly KPI packs (job margin, cash, AR)</li>
+          <li>AI and automation projects that cut admin and reporting time</li>
+          <li>Fixed scope, fixed fee, 50% to start</li>
         </ul>
       </div>
     </div>
 
     <aside class="aside-note">
-      <div class="badge">QuickBooks Online · Level 2</div>
-      <h3>Built for owners who are done guessing.</h3>
-      <p>You work directly with the person doing the work. AI speeds drafts and cleanup; every client deliverable is human-reviewed before it hits your inbox.</p>
+      <div class="badge">One firm · Books + Tax</div>
+      <h3>Your return is only as good as your books.</h3>
+      <p>When the same firm keeps your books and prepares your return, nothing gets lost in a March handoff. Deductions are tracked all year, estimates are planned, and filing is the easy part.</p>
+      <p>You work directly with the person doing the work. AI speeds up drafts and data entry; every deliverable and every return is checked by a person before it reaches you.</p>
       <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Schedule a fit call</a>
     </aside>
   </div>
 </section>
 
-<section id="pricing" class="alt">
+<section id="trades" class="alt">
+  <div class="wrap">
+    <h2>Built for contractors and the trades</h2>
+    <p class="sub">We work with any small business, but we know the trades best: job-heavy, cash-heavy, and usually behind in QuickBooks.</p>
+    <div class="chips">
+      <span>General contractors</span><span>Remodelers</span><span>Painters</span><span>Roofers</span><span>Landscapers</span><span>HVAC</span><span>Plumbing</span><span>Electrical</span><span>Cleaning</span>
+    </div>
+    <div class="trades">
+      <div><strong>Job costing that makes sense</strong><span>Materials, labor, and subs tracked by job so you can see which jobs actually made money.</span></div>
+      <div><strong>Subcontractor 1099s, done right</strong><span>W-9s collected during the year, 1099s filed on time in January.</span></div>
+      <div><strong>Owner draws and truck payments sorted</strong><span>Personal charges and vehicle loans booked correctly, not buried in "Office Supplies."</span></div>
+      <div><strong>Deposits and progress billing</strong><span>Customer deposits held as liabilities until the work is done, so profit isn't overstated.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
   <div class="wrap">
     <h2>Straightforward pricing</h2>
-    <p class="sub">Transparent ranges — exact fee after we review your QuickBooks file. Month-to-month; no long-term lock-in.</p>
+    <p class="sub">Ranges are shown up front. Your exact fixed fee comes after we look at your QuickBooks file and last return. Month-to-month; no long-term lock-in.</p>
 
-    <div class="tiers">
+    <p class="price-group">Monthly plans</p>
+    <div class="tiers four">
       <div class="tier">
         <h3>Essential</h3>
         <div class="price">$300–350 <span>/mo</span></div>
-        <p>Simple, accurate bookkeeping every month.</p>
+        <p>Simple, accurate books every month.</p>
         <ul>
-          <li>Monthly bank &amp; card reconciliation</li>
-          <li>Expense categorization with bank rules</li>
+          <li>Bank &amp; card reconciliations</li>
+          <li>Categorization with bank rules</li>
           <li>Monthly P&amp;L and balance sheet</li>
         </ul>
-        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Best for freelancers and solo owners with straightforward books.</p>
+        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Solo owners with straightforward books.</p>
       </div>
       <div class="tier featured">
         <h3>Professional</h3>
@@ -430,64 +514,118 @@
         <p>Clear numbers that support growth. <strong style="color:var(--teal);font-weight:600;">Most popular.</strong></p>
         <ul>
           <li>Everything in Essential</li>
-          <li>Close by the 10th</li>
+          <li>Closed by the 10th</li>
           <li>Month-end note on what changed</li>
-          <li>Light AR &amp; AP tracking</li>
-          <li>CPA-friendly monthly package</li>
+          <li>AR &amp; AP tracking, light KPIs</li>
         </ul>
-        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Best for growing businesses with multiple accounts.</p>
+        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Growing businesses and most contractors.</p>
       </div>
       <div class="tier">
         <h3>Premium</h3>
         <div class="price">$450–750 <span>/mo</span></div>
-        <p>Hands-on support and advanced reporting.</p>
+        <p>Hands-on support, more complexity.</p>
         <ul>
           <li>Everything in Professional</li>
-          <li>Custom reports &amp; light KPI dashboards</li>
-          <li>Loans, accrual, or higher complexity</li>
-          <li>Priority turnaround</li>
+          <li>Job costing &amp; custom reports</li>
+          <li>Loans, accruals, multiple entities</li>
+          <li>15-minute monthly walkthrough call</li>
         </ul>
-        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Best for established or multi-account businesses.</p>
+        <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Established or multi-account businesses.</p>
+      </div>
+      <div class="tier bundle">
+        <span class="tag-new">Best value</span>
+        <h3>Books + Tax</h3>
+        <div class="price">from $500 <span>/mo</span></div>
+        <p>Any monthly plan, plus your returns.</p>
+        <ul>
+          <li>Business return (1120-S, 1065, 1120, or Sch. C)</li>
+          <li>Owner 1040, federal + Missouri</li>
+          <li>Estimated tax planning</li>
+          <li>Spread evenly over 12 months</li>
+        </ul>
+        <p class="fit" style="margin-top:12px;font-size:0.85rem;">No surprise invoice in April.</p>
       </div>
     </div>
 
-    <div class="addons">
-      <div><strong>Catch-up / cleanup</strong> — ~0.75× your monthly rate × months behind; ~50% off cleanup when you start monthly</div>
-      <div><strong>Payroll add-on</strong> — +$150–400/mo</div>
-      <div><strong>Sales tax add-on</strong> — +$75–150/mo or per filing</div>
-      <div><strong>Analytics retainer</strong> — $500–1,500/mo · <strong>Projects / AI</strong> — from $2,000</div>
+    <p class="price-group">Tax preparation only</p>
+    <div class="tax-grid">
+      <div class="tax-card"><h3>Business return</h3><div class="price">from $1,500</div><p>1120-S, 1065, or 1120 with the Missouri return. Fixed quote after we review your books.</p></div>
+      <div class="tax-card"><h3>Personal return</h3><div class="price">from $400</div><p>Federal 1040 and Missouri return for owners and individuals. Priced by schedules, not by the hour.</p></div>
+      <div class="tax-card"><h3>Behind on filing?</h3><div class="price">Quoted</div><p>Prior-year returns and the catch-up books behind them, on one fixed proposal.</p></div>
     </div>
-    <p class="note">Pricing reflects complexity and availability. Cancel anytime with notice. Net 15. Projects: 50% deposit, 50% on delivery. Card fees absorbed into package prices.</p>
+
+    <div class="addons">
+      <div><strong>Catch-up / cleanup</strong>: ~0.75× your monthly rate × months behind; about 50% off when you start a monthly plan</div>
+      <div><strong>Payroll</strong>: +$150–400/mo</div>
+      <div><strong>Sales tax</strong>: +$75–150/mo or per filing</div>
+      <div><strong>Analytics retainer</strong>: $500–1,500/mo · <strong>Projects / AI</strong>: from $2,000</div>
+    </div>
+    <p class="note">Fixed fees by engagement letter. Net 15. Projects: 50% deposit, 50% on delivery. Card fees are built into package prices. Now booking for the 2027 tax season.</p>
   </div>
 </section>
 
-<section id="how">
+<section id="how" class="alt">
   <div class="wrap">
     <h2>How it works</h2>
-    <p class="sub">No mystery process. Fit call → fixed proposal → delivery.</p>
+    <p class="sub">Fit call, fixed proposal, then we get to work.</p>
     <ol class="steps">
-      <li><strong>Fit call (15 minutes)</strong><span>We confirm books, analytics, AI — or a clean handoff if we’re not the right fit.</span></li>
-      <li><strong>Fixed-scope proposal + engagement letter</strong><span>What’s included, what’s not, and the price. No open-ended hourly surprises.</span></li>
-      <li><strong>Catch-up (if needed), then monthly rhythm</strong><span>Aim to get current in about a week when scoped; then close by the 10th every month.</span></li>
-      <li><strong>Stay month-to-month</strong><span>Add payroll, sales tax, analytics, or AI when it helps. Raise or pause with notice — no hostage contracts.</span></li>
+      <li><strong>Fit call (15 minutes)</strong><span>What's behind, what's due, and whether we're the right fit. If we're not, we'll point you to someone who is.</span></li>
+      <li><strong>Fixed-fee proposal and engagement letter</strong><span>What's included, what isn't, and the price. Signed electronically.</span></li>
+      <li><strong>Catch-up, then a monthly rhythm</strong><span>We get you current, then close every month by the 10th. Questions come in one batch, not forty texts.</span></li>
+      <li><strong>Tax season is the easy part</strong><span>Your books are already clean, so returns get prepared, walked through with you, and e-filed without the scramble.</span></li>
     </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Are you a CPA firm?</summary>
+        <p>No. Nova Heritage Group is an accounting and tax firm, not a CPA firm. We handle bookkeeping, payroll, sales tax, and tax preparation and e-filing. We don't perform audits, reviews, or other attest services. If your bank or a contract requires a CPA-issued report, we'll get your books ready and coordinate with a CPA.</p>
+      </details>
+      <details>
+        <summary>I already have a CPA for my taxes. Can you just do the books?</summary>
+        <p>Yes. That's a common setup: you keep your CPA for the return and we handle the monthly work. We hand your CPA clean, reconciled books at year end.</p>
+      </details>
+      <details>
+        <summary>How far behind is too far behind?</summary>
+        <p>Not much is. Catch-up is a core service, and we can pair it with prior-year returns. You get one fixed quote for the whole cleanup before we start.</p>
+      </details>
+      <details>
+        <summary>Do I have to be in the Kansas City area?</summary>
+        <p>No. We're based in Lee's Summit and serve the whole Kansas City metro area on both sides of the state line, and everything also runs remotely through QuickBooks Online, email, and video calls, so clients anywhere in the U.S. are welcome. Returns for states other than Missouri are quoted separately.</p>
+      </details>
+      <details>
+        <summary>What software do you use?</summary>
+        <p>QuickBooks Online and QuickBooks Payroll for most clients, and Xero when you're already on it. Returns are prepared in professional tax software and filed electronically.</p>
+      </details>
+      <details>
+        <summary>Is there a contract?</summary>
+        <p>Monthly plans are month-to-month with 30 days' written notice to cancel. Tax preparation is a separate fixed-fee engagement for each tax year.</p>
+      </details>
+    </div>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2>Let’s get your books off your plate</h2>
-    <p class="sub">Tell us what’s behind and what “done” looks like. We’ll tell you the path and the number.</p>
+    <h2>Let's get your books and taxes off your plate</h2>
+    <p class="sub">Tell us what's behind and what's due. We'll give you the plan and a fixed number.</p>
     <p style="margin-bottom:16px;">
       <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a fit call</a>
     </p>
     <a class="mail" href="mailto:novaheritagegroup@gmail.com">novaheritagegroup@gmail.com</a>
-    <p class="meta">Nova Heritage Group LLC · Lee's Summit, MO · (856) 718-5880</p>
+    <p class="meta">Nova Heritage Group LLC · Lee's Summit, MO · <a href="tel:+18567185880" style="color:inherit">(856) 718-5880</a></p>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© 2026 Nova Heritage Group LLC. Bookkeeping, analytics, and AI services. Not tax preparation, audit, or legal advice.</div>
+  <div class="wrap">
+    <div>© 2026 Nova Heritage Group LLC · Accounting, tax preparation, analytics, and AI services.</div>
+    <div>Nova Heritage Group LLC is not a CPA firm and does not provide audit, review, compilation, or other attest services, or legal advice.</div>
+  </div>
 </footer>
 
 <script>
