@@ -15,16 +15,69 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AccountingService",
-    "name": "Nova Heritage Group LLC",
-    "url": "https://novaheritagegroupllc.com/",
-    "logo": "https://novaheritagegroupllc.com/assets/nova-heritage-logo.png",
-    "email": "novaheritagegroup@gmail.com",
-    "telephone": "+1-856-718-5880",
-    "address": { "@type": "PostalAddress", "addressLocality": "Lee's Summit", "addressRegion": "MO", "addressCountry": "US" },
-    "areaServed": ["Kansas City metropolitan area", "Lee's Summit, MO", "United States"],
-    "priceRange": "$$",
-    "description": "Bookkeeping, payroll, sales tax, and tax preparation for small businesses and contractors."
+    "@graph": [
+      {
+        "@type": "AccountingService",
+        "@id": "https://novaheritagegroupllc.com/#business",
+        "name": "Nova Heritage Group LLC",
+        "alternateName": "Nova Heritage Group",
+        "url": "https://novaheritagegroupllc.com/",
+        "logo": "https://novaheritagegroupllc.com/assets/nova-heritage-logo.png",
+        "image": "https://novaheritagegroupllc.com/assets/nova-heritage-logo.png",
+        "description": "Accounting and tax firm in Lee's Summit, MO. Monthly QuickBooks Online bookkeeping, catch-up and cleanup, payroll, sales tax, and business and personal tax preparation with e-filing for small businesses and contractors across the Kansas City metro and nationwide. Not a CPA firm.",
+        "telephone": "+1-856-718-5880",
+        "email": "novaheritagegroup@gmail.com",
+        "priceRange": "$300–$750/month",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lee's Summit",
+          "addressRegion": "MO",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {"@type": "City", "name": "Lee's Summit, MO"},
+          {"@type": "City", "name": "Kansas City, MO"},
+          {"@type": "City", "name": "Kansas City, KS"},
+          {"@type": "City", "name": "Overland Park, KS"},
+          {"@type": "City", "name": "Independence, MO"},
+          {"@type": "City", "name": "Blue Springs, MO"},
+          {"@type": "City", "name": "Olathe, KS"},
+          {"@type": "Country", "name": "United States"}
+        ],
+        "knowsAbout": ["Bookkeeping", "QuickBooks Online", "Contractor bookkeeping", "Job costing", "Payroll", "Sales tax", "Tax preparation", "1099 preparation"],
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "name": "QuickBooks Online ProAdvisor, Level 2",
+          "recognizedBy": {"@type": "Organization", "name": "Intuit"}
+        },
+        "sameAs": [
+          "https://calendly.com/novaheritagegroup"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Bookkeeping and tax services",
+          "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Essential monthly bookkeeping"}, "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 300, "maxPrice": 350, "priceCurrency": "USD", "unitText": "MONTH"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Professional monthly bookkeeping"}, "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 350, "maxPrice": 450, "priceCurrency": "USD", "unitText": "MONTH"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Premium monthly bookkeeping"}, "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 450, "maxPrice": 750, "priceCurrency": "USD", "unitText": "MONTH"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business tax return (1120-S, 1065, 1120)"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 1500, "priceCurrency": "USD"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Personal tax return (1040, federal and state)"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 250, "priceCurrency": "USD"}}
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://novaheritagegroupllc.com/#faq",
+        "mainEntity": [
+          {"@type": "Question", "name": "Are you a CPA firm?", "acceptedAnswer": {"@type": "Answer", "text": "No. Nova Heritage Group is an accounting and tax firm, not a CPA firm. We handle bookkeeping, payroll, sales tax, and tax preparation and e-filing. We don't perform audits, reviews, or other attest services. If your bank or a contract requires a CPA-issued report, we'll get your books ready and coordinate with a CPA."}},
+          {"@type": "Question", "name": "I already have a CPA for my taxes. Can you just do the books?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You keep your CPA for the return and we handle the monthly work. We hand your CPA clean, reconciled books at year end."}},
+          {"@type": "Question", "name": "How far behind is too far behind?", "acceptedAnswer": {"@type": "Answer", "text": "Not much is. Catch-up is a core service, and we can pair it with prior-year returns. You get one fixed quote for the whole cleanup before we start."}},
+          {"@type": "Question", "name": "Do I have to be in the Kansas City area?", "acceptedAnswer": {"@type": "Answer", "text": "No. We're based in Lee's Summit and serve the whole Kansas City metro area on both sides of the state line, and everything also runs remotely through QuickBooks Online, email, and video calls, so clients anywhere in the U.S. are welcome."}},
+          {"@type": "Question", "name": "What software do you use?", "acceptedAnswer": {"@type": "Answer", "text": "QuickBooks Online and QuickBooks Payroll for most clients, and Xero when you're already on it. Returns are prepared in professional tax software and filed electronically."}},
+          {"@type": "Question", "name": "Is there a contract?", "acceptedAnswer": {"@type": "Answer", "text": "Monthly plans are month-to-month with 30 days' written notice to cancel. Tax preparation is a separate fixed-fee engagement for each tax year."}}
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -368,6 +421,8 @@
     .chips { display:flex; flex-wrap:wrap; gap:8px; margin: 4px 0 28px; }
     .chips span { font-size:0.85rem; font-weight:500; padding:6px 12px; border-radius:999px; background:var(--teal-glow); color:var(--teal-deep); }
     .faq { max-width: 760px; }
+    .footer-links { margin-bottom: 6px; }
+    .footer-links a { color: var(--slate); }
     .faq details { border-bottom:1px solid var(--line); padding: 16px 0; }
     .faq summary { cursor:pointer; font-weight:600; list-style:none; display:flex; justify-content:space-between; gap:16px; }
     .faq summary::-webkit-details-marker { display:none; }
@@ -487,6 +542,7 @@
       <div><strong>Owner draws and truck payments sorted</strong><span>Personal charges and vehicle loans booked correctly, not buried in "Office Supplies."</span></div>
       <div><strong>Deposits and progress billing</strong><span>Customer deposits held as liabilities until the work is done, so profit isn't overstated.</span></div>
     </div>
+    <p style="margin-top:20px;"><a href="/contractor-bookkeeping/">More on bookkeeping for contractors →</a></p>
   </div>
 </section>
 
@@ -623,6 +679,7 @@
 
 <footer>
   <div class="wrap">
+    <div class="footer-links"><a href="/bookkeeping-lees-summit-mo/">Bookkeeping in Lee's Summit</a> · <a href="/bookkeeping-kansas-city/">Bookkeeping in Kansas City</a> · <a href="/contractor-bookkeeping/">Contractor bookkeeping</a> · <a href="/quickbooks-cleanup-catch-up/">QuickBooks cleanup &amp; catch-up</a></div>
     <div>© 2026 Nova Heritage Group LLC · Accounting, tax preparation, analytics, and AI services.</div>
     <div>Nova Heritage Group LLC is not a CPA firm and does not provide audit, review, compilation, or other attest services, or legal advice.</div>
   </div>
