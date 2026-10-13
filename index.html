@@ -76,6 +76,8 @@
           {"@type": "Question", "name": "How far behind is too far behind?", "acceptedAnswer": {"@type": "Answer", "text": "Not much is. Catch-up is a core service, and we can pair it with prior-year returns. You get one fixed quote for the whole cleanup before we start."}},
           {"@type": "Question", "name": "Do I have to be in the Kansas City area?", "acceptedAnswer": {"@type": "Answer", "text": "No. We're based in Lee's Summit and serve the whole Kansas City metro area on both sides of the state line, and everything also runs remotely through QuickBooks Online, email, and video calls, so clients anywhere in the U.S. are welcome."}},
           {"@type": "Question", "name": "What software do you use?", "acceptedAnswer": {"@type": "Answer", "text": "QuickBooks Online and QuickBooks Payroll for most clients, and Xero when you're already on it. Returns are prepared in professional tax software and filed electronically."}},
+          {"@type": "Question", "name": "What's in the monthly dashboard?", "acceptedAnswer": {"@type": "Answer", "text": "A one-page view of revenue, net profit, cash, and who owes you money, plus margin by job type, client, or product line and a short note on what changed and what to watch. Essential plans get a simpler snapshot."}},
+          {"@type": "Question", "name": "How does the guarantee work?", "acceptedAnswer": {"@type": "Answer", "text": "If your books for a month aren't closed by the 10th of the next month, that month's bookkeeping fee is free. The clock starts once we have your bank and card access and any documents we asked for."}},
           {"@type": "Question", "name": "Is there a contract?", "acceptedAnswer": {"@type": "Answer", "text": "Monthly plans are month-to-month with 30 days' written notice to cancel. Tax preparation is a separate fixed-fee engagement for each tax year."}}
         ]
       }
@@ -436,6 +438,37 @@
     .faq details p { color: var(--slate); margin-top: 10px; font-size: 0.97rem; }
     .season { display:inline-block; font-size:0.82rem; font-weight:600; color:#0b1f33; background:#9fddd9; padding:5px 10px; border-radius:4px; margin-bottom:18px; }
     footer .wrap { display:flex; flex-direction:column; gap:6px; }
+
+    /* Offer upgrade (Oct 2026) */
+    .hero .season { margin-bottom: 22px; }
+    .pain { padding: 56px 0; }
+    .pain-grid { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0 28px; }
+    @media (max-width: 900px) { .pain-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-grid div { border-top: 2px solid var(--ink); padding: 14px 0 18px; }
+    .pain-grid strong { display:block; margin-bottom: 4px; font-size: 1rem; }
+    .pain-grid span { color: var(--slate); font-size: 0.95rem; }
+    .checks { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 760px) { .checks { grid-template-columns: 1fr; } }
+    .check { border: 1px solid var(--line); background: var(--white); border-radius: 4px; padding: 24px 22px; display:flex; flex-direction:column; gap: 10px; }
+    .check .free { align-self:flex-start; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color: var(--teal-deep); background: var(--teal-glow); padding: 4px 8px; border-radius: 4px; }
+    .check h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 1.6rem; line-height: 1.15; }
+    .check p { color: var(--slate); font-size: 0.97rem; }
+    .check ul { list-style:none; display:grid; gap: 6px; margin-bottom: 6px; }
+    .check li { position:relative; padding-left: 18px; font-size: 0.95rem; color: var(--ink-soft); }
+    .check li::before { content:""; position:absolute; left:0; top:0.55em; width:7px; height:7px; border-radius:50%; background: var(--teal); }
+    .check .cta { align-self:flex-start; margin-top: auto; }
+    .offer { display:grid; grid-template-columns: 1.3fr 1fr; gap: 20px 32px; align-items:center; background: var(--ink); color:#fff; border-radius: 4px; padding: 26px 26px; margin: 0 0 28px; }
+    @media (max-width: 800px) { .offer { grid-template-columns: 1fr; } }
+    .offer .when { font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#9fddd9; }
+    .offer h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 1.7rem; line-height: 1.15; margin: 6px 0 8px; }
+    .offer p { color: rgba(255,255,255,0.72); font-size: 0.95rem; }
+    .offer ul { list-style:none; display:grid; gap: 8px; }
+    .offer li { position:relative; padding-left: 20px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+    .offer li::before { content:"✓"; position:absolute; left:0; color:#7ec8c4; font-weight:700; }
+    .guarantee { display:flex; flex-wrap:wrap; gap: 10px 24px; align-items:center; border:1px solid var(--teal); background: var(--white); border-radius: 4px; padding: 14px 18px; margin: 0 0 28px; font-size: 0.95rem; }
+    .guarantee strong { color: var(--teal-deep); }
+    .dash-link { display:inline-block; margin-top: 4px; font-weight: 600; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -449,6 +482,7 @@
     <nav>
       <a href="#services">Services</a>
       <a href="#who">Who we serve</a>
+      <a href="#free-check">Free check</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="/about/">About</a>
@@ -461,11 +495,12 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap">
     <p class="hero-brand rise">Nova <span>Heritage</span> Group</p>
-    <h1 class="rise-delay">Accounting &amp; tax for small businesses across the Kansas City metro area.</h1>
-    <p class="lede rise-delay-2">Books closed by the 10th. Payroll and sales tax handled. Business and personal returns prepared and e-filed. One firm, fixed fees, no tax-season scramble. Based in Lee's Summit, working with businesses of every kind and with individuals, across the metro and anywhere in the U.S.</p>
+    <h1 class="rise-delay">Know what your business actually makes, and never dread tax season again.</h1>
+    <p class="lede rise-delay-2">Accounting and tax for small businesses across the Kansas City metro and anywhere in the U.S. Books closed by the 10th, a monthly profit dashboard, payroll and sales tax handled, and your returns prepared and e-filed. One firm, fixed fees.</p>
+    <a class="season rise-delay-2" href="#offer" style="text-decoration:none;">Year-end offer: start a monthly plan by December 15 →</a>
     <div class="cta-row rise-delay-2">
-      <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a 15-minute fit call</a>
-      <a class="cta ghost" href="#pricing">See pricing</a>
+      <a class="cta" href="#free-check">Get a free Books Health Check</a>
+      <a class="cta ghost" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Book a 15-minute fit call</a>
     </div>
   </div>
 </section>
@@ -476,8 +511,22 @@
     <div>B.S. Accounting · M.A. Economics</div>
     <div>Lee's Summit, MO · Kansas City metro + nationwide</div>
     <div>Fixed monthly fees · Month-to-month</div>
+    <div><strong>Closed by the 10th, or that month is free</strong></div>
   </div>
 </div>
+
+<section class="pain alt" aria-labelledby="painH">
+  <div class="wrap">
+    <h2 id="painH">What messy books cost you</h2>
+    <p class="sub">Most owners don't find out until April, when it's too late to fix.</p>
+    <div class="pain-grid">
+      <div><strong>Overpaying on taxes</strong><span>Missed deductions, no estimate plan, and an entity that no longer fits how much you make.</span></div>
+      <div><strong>Surprise tax bills</strong><span>Profit you didn't see coming turns into a bill you didn't plan for.</span></div>
+      <div><strong>Guessing what makes money</strong><span>Without clean books you can't tell which jobs, clients, or products actually pay.</span></div>
+      <div><strong>The March scramble</strong><span>A year of receipts sorted in a weekend, and a return built on numbers nobody checked.</span></div>
+    </div>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap split">
@@ -492,8 +541,9 @@
           <li>QuickBooks Online cleanup, catch-up, and monthly close</li>
           <li>Bank and card reconciliations; P&amp;L and balance sheet by the 10th</li>
           <li>A short month-end note on what changed and what to watch</li>
+          <li>A monthly profit dashboard: revenue, profit, cash, what you're owed, and margin by job, client, or product line</li>
         </ul>
-        <p class="more"><a href="/small-business-bookkeeping/">Small business bookkeeping →</a> &nbsp; <a href="/quickbooks-cleanup-catch-up/">Cleanup &amp; catch-up →</a></p>
+        <p class="more"><a href="/sample-dashboard/">See a sample dashboard →</a> &nbsp; <a href="/small-business-bookkeeping/">Small business bookkeeping →</a> &nbsp; <a href="/quickbooks-cleanup-catch-up/">Cleanup &amp; catch-up →</a></p>
       </div>
 
       <div class="service-block">
@@ -518,10 +568,10 @@
       </div>
 
       <div class="service-block">
-        <h3>Data analytics &amp; AI implementation <span class="tag">Growth</span></h3>
-        <p style="color:var(--slate);font-size:0.98rem;">For owners who want more than compliance. Senior analytics experience, sold as its own service line.</p>
+        <h3>Analytics &amp; AI projects <span class="tag">Growth</span></h3>
+        <p style="color:var(--slate);font-size:0.98rem;">Every monthly plan already includes a dashboard. When you need more, we build it, backed by senior analytics experience.</p>
         <ul>
-          <li>Dashboards and monthly KPI packs (job margin, cash, AR)</li>
+          <li>Cash-flow forecasts and custom KPI reporting</li>
           <li>AI and automation projects that cut admin and reporting time</li>
           <li>Fixed scope, fixed fee, 50% to start</li>
         </ul>
@@ -553,10 +603,60 @@
   </div>
 </section>
 
-<section id="pricing">
+<section id="free-check">
+  <div class="wrap">
+    <h2>Start with a free check</h2>
+    <p class="sub">No sales pitch. You get something useful in writing, and a fixed price if you want us to take it from there.</p>
+    <div class="checks">
+      <div class="check">
+        <span class="free">Free</span>
+        <h3>Books Health Check</h3>
+        <p>Give us read-only access to your QuickBooks file. Within 48 hours you get a short written review and a fixed quote.</p>
+        <ul>
+          <li>How far behind you are and what's miscategorized</li>
+          <li>Reconciliation gaps and anything that would trip up a return</li>
+          <li>A fixed price for catch-up and monthly service</li>
+        </ul>
+        <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Request a Health Check</a>
+      </div>
+      <div class="check">
+        <span class="free">Free</span>
+        <h3>S-Corp Savings Check</h3>
+        <p>For profitable LLCs and sole proprietors. We estimate what an S-corp election could save you after a reasonable salary, payroll costs, and the extra return.</p>
+        <ul>
+          <li>Your estimated savings, or a clear "not yet"</li>
+          <li>The profit level where it starts to make sense for you</li>
+          <li>What would need to change in your books and payroll</li>
+        </ul>
+        <a class="cta" href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener">Request a Savings Check</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="alt">
   <div class="wrap">
     <h2>Straightforward pricing</h2>
     <p class="sub">Ranges are shown up front. Your exact fixed fee comes after we look at your QuickBooks file and last return. Month-to-month; no long-term lock-in.</p>
+
+    <div class="offer" id="offer">
+      <div>
+        <div class="when">Year-end offer · Start by December 15</div>
+        <h3>Get current before tax season, at half the catch-up price.</h3>
+        <p>We're taking 5 new monthly clients before tax season.</p>
+      </div>
+      <ul>
+        <li>Catch-up and cleanup at 50% off</li>
+        <li>Your 2026 returns covered by your monthly fee on Books + Tax, with no separate April invoice</li>
+        <li>A quarterly tax check-in through 2027</li>
+      </ul>
+    </div>
+
+    <div class="guarantee">
+      <strong>Our guarantee</strong>
+      <span>Books closed by the 10th, or that month is free.</span>
+      <span>Replies within one business day.</span>
+    </div>
 
     <p class="price-group">Monthly plans</p>
     <div class="tiers four">
@@ -568,6 +668,7 @@
           <li>Bank &amp; card reconciliations</li>
           <li>Categorization with bank rules</li>
           <li>Monthly P&amp;L and balance sheet</li>
+          <li>Monthly snapshot: revenue, profit, cash</li>
         </ul>
         <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Solo owners with straightforward books.</p>
       </div>
@@ -579,7 +680,8 @@
           <li>Everything in Essential</li>
           <li>Closed by the 10th</li>
           <li>Month-end note on what changed</li>
-          <li>AR &amp; AP tracking, light KPIs</li>
+          <li>Monthly profit dashboard</li>
+          <li>AR &amp; AP tracking</li>
         </ul>
         <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Growing businesses and most contractors.</p>
       </div>
@@ -591,6 +693,7 @@
           <li>Everything in Professional</li>
           <li>Job costing &amp; custom reports</li>
           <li>Loans, accruals, multiple entities</li>
+          <li>Cash-flow forecast</li>
           <li>15-minute monthly walkthrough call</li>
         </ul>
         <p class="fit" style="font-size:0.85rem;color:var(--slate);margin-top:12px;">Established or multi-account businesses.</p>
@@ -627,20 +730,20 @@
   </div>
 </section>
 
-<section id="how" class="alt">
+<section id="how">
   <div class="wrap">
     <h2>How it works</h2>
     <p class="sub">Fit call, fixed proposal, then we get to work.</p>
     <ol class="steps">
       <li><strong>Fit call (15 minutes)</strong><span>What's behind, what's due, and whether we're the right fit. If we're not, we'll point you to someone who is.</span></li>
       <li><strong>Fixed-fee proposal and engagement letter</strong><span>What's included, what isn't, and the price. Signed electronically.</span></li>
-      <li><strong>Catch-up, then a monthly rhythm</strong><span>We get you current, then close every month by the 10th. Questions come in one batch, not forty texts.</span></li>
+      <li><strong>Catch-up, then a monthly rhythm</strong><span>We get you current, then close every month by the 10th, or that month is free. You get your dashboard and a short note. Questions come in one batch, not forty texts.</span></li>
       <li><strong>Tax season is the easy part</strong><span>Your books are already clean, so returns get prepared, walked through with you, and e-filed without the scramble.</span></li>
     </ol>
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="alt">
   <div class="wrap">
     <h2>Common questions</h2>
     <div class="faq">
@@ -667,6 +770,14 @@
       <details>
         <summary>What software do you use?</summary>
         <p>QuickBooks Online and QuickBooks Payroll for most clients, and Xero when you're already on it. Returns are prepared in professional tax software and filed electronically.</p>
+      </details>
+      <details>
+        <summary>What's in the monthly dashboard?</summary>
+        <p>A one-page view of revenue, net profit, cash, and who owes you money, plus margin by job type, client, or product line and a short note on what changed and what to watch. Essential plans get a simpler snapshot. <a href="/sample-dashboard/">See a sample</a>.</p>
+      </details>
+      <details>
+        <summary>How does the guarantee work?</summary>
+        <p>If your books for a month aren't closed by the 10th of the next month, that month's bookkeeping fee is free. The clock starts once we have your bank and card access and any documents we asked for.</p>
       </details>
       <details>
         <summary>Is there a contract?</summary>
