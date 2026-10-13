@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample Monthly Profit Dashboard | Nova Heritage Group</title>
+<meta name="description" content="A sample of the one-page profit dashboard Nova Heritage Group clients get every month, built on fictional data.">
+<link rel="canonical" href="https://novaheritagegroupllc.com/sample-dashboard/">
+<link rel="icon" type="image/png" href="/assets/nova-heritage-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: a month-end report sheet. Brand band on top, four headline figures,
+   then trend, margin, receivables, and the bookkeeper's note. One column on phones. */
+:root {
+  --page: #f4f6f8;
+  --sheet: #fcfcfb;
+  --ink: #0f1d2c;
+  --ink-2: #4a5563;
+  --muted: #7d8794;
+  --rule: #e1e5ea;
+  --axis: #c4cad2;
+  --navy: #14304f;
+  --on-navy: #f2f6fa;
+  --on-navy-2: #b9c8d8;
+  --teal: #00939b;
+  --rev: #00939b;
+  --profit: #e0702b;
+  --good: #0a7a3c;
+  --bad: #b3361f;
+  --chip-good-bg: #e3f3ea;
+  --chip-warn-bg: #fcefd9;
+  --chip-warn: #8a5300;
+  --chip-bad-bg: #fbe4df;
+  --tip-bg: #0f1d2c;
+  --tip-fg: #f2f6fa;
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-label: "IBM Plex Sans Condensed", "IBM Plex Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0e1318; --sheet: #161c22; --ink: #eef2f6; --ink-2: #b7c0ca; --muted: #8a94a0;
+    --rule: #252d36; --axis: #36404b; --navy: #0b1d31; --on-navy: #eef2f6; --on-navy-2: #9fb2c6;
+    --teal: #1aa3ab; --rev: #1aa3ab; --profit: #d9632a; --good: #3cc477; --bad: #f07a63;
+    --chip-good-bg: #133222; --chip-warn-bg: #3a2a0c; --chip-warn: #f2b94f; --chip-bad-bg: #3d1913;
+    --tip-bg: #eef2f6; --tip-fg: #0f1d2c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0e1318; --sheet: #161c22; --ink: #eef2f6; --ink-2: #b7c0ca; --muted: #8a94a0;
+  --rule: #252d36; --axis: #36404b; --navy: #0b1d31; --on-navy: #eef2f6; --on-navy-2: #9fb2c6;
+  --teal: #1aa3ab; --rev: #1aa3ab; --profit: #d9632a; --good: #3cc477; --bad: #f07a63;
+  --chip-good-bg: #133222; --chip-warn-bg: #3a2a0c; --chip-warn: #f2b94f; --chip-bad-bg: #3d1913;
+  --tip-bg: #eef2f6; --tip-fg: #0f1d2c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 40px; display: grid; gap: 16px; }
+
+.band { background: var(--navy); color: var(--on-navy); border-radius: 10px; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+.band .firm { font-family: var(--font-label); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--on-navy-2); display: flex; align-items: center; gap: 8px; }
+.band .firm b { color: var(--teal); font-weight: 600; }
+.band h1 { margin: 4px 0 0; font-size: clamp(22px, 3.2vw, 30px); font-weight: 600; line-height: 1.2; text-wrap: balance; }
+.band .period { text-align: right; }
+.band .period .lbl { font-family: var(--font-label); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--on-navy-2); }
+.band .period .val { font-size: 18px; font-weight: 600; }
+.sample-flag { display: inline-block; margin-top: 6px; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--chip-warn-bg); color: var(--chip-warn); font-weight: 600; }
+
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .tiles { grid-template-columns: 1fr; } }
+.tile { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.tile .lbl { font-family: var(--font-label); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.tile .val { font-size: 28px; font-weight: 600; line-height: 1.15; }
+.tile .sub { font-size: 13px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.delta { font-weight: 600; white-space: nowrap; }
+.delta.up { color: var(--good); } .delta.down { color: var(--bad); } .delta.flat { color: var(--ink-2); }
+.spark { width: 100%; height: 34px; margin-top: 4px; }
+
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 12px; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; min-width: 0; display: grid; gap: 10px; align-content: start; }
+.card-h { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+.card h2 { margin: 0; font-size: 16px; font-weight: 600; }
+.card .hint { font-size: 13px; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw-bar { width: 12px; height: 12px; border-radius: 3px; background: var(--rev); }
+.sw-line { width: 16px; height: 2px; background: var(--profit); position: relative; }
+.sw-line::after { content: ""; position: absolute; left: 5px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: var(--profit); }
+.toggle { font: inherit; font-size: 13px; color: var(--teal); background: none; border: 1px solid var(--rule); border-radius: 6px; padding: 3px 10px; cursor: pointer; }
+.toggle:hover { border-color: var(--teal); }
+.toggle:focus-visible, .hit:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--font); fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.chart .lab { fill: var(--ink-2); font-size: 12px; }
+.chart .lab-strong { fill: var(--ink); font-size: 12px; font-weight: 600; }
+.tip { position: absolute; pointer-events: none; background: var(--tip-bg); color: var(--tip-fg); font-size: 12px; line-height: 1.45; padding: 7px 10px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, calc(-100% - 10px)); z-index: 2; }
+.tip b { font-weight: 600; }
+.tip i { font-style: normal; display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+
+.tbl-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-family: var(--font-label); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2); }
+td.flag { color: var(--bad); font-weight: 600; }
+
+.chip { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; }
+.chip.good { background: var(--chip-good-bg); color: var(--good); }
+.chip.warn { background: var(--chip-warn-bg); color: var(--chip-warn); }
+.chip.bad { background: var(--chip-bad-bg); color: var(--bad); }
+
+.note { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; }
+@media (max-width: 700px) { .note { grid-template-columns: 1fr; } }
+.note h3 { margin: 0 0 6px; font-family: var(--font-label); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.note ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 62ch; }
+.foot { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: space-between; }
+@media (prefers-reduced-motion: no-preference) { .hit { transition: opacity .12s; } }
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app">
+  <p style="margin:0;font-size:14px"><a href="/" style="color:var(--teal);text-decoration:none;font-weight:600">← Nova Heritage Group</a> &nbsp;·&nbsp; <span style="color:var(--ink-2)">This is what clients receive at each monthly close. The company and figures are fictional.</span> &nbsp;<a href="https://calendly.com/novaheritagegroup" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600;text-decoration:none">Book a fit call →</a></p>
+  <header class="band">
+    <div>
+      <div class="firm"><b>&#9632;</b> Nova Heritage Group &middot; Monthly profit dashboard</div>
+      <h1 id="client"></h1>
+      <span class="sample-flag" id="sampleFlag" hidden>Sample data for illustration</span>
+    </div>
+    <div class="period"><div class="lbl">Month closed</div><div class="val" id="period"></div></div>
+  </header>
+
+  <section class="tiles" id="tiles" aria-label="Headline figures"></section>
+
+  <div class="grid2">
+    <section class="card" aria-labelledby="trendH">
+      <div class="card-h">
+        <h2 id="trendH">Revenue and net profit, last 12 months</h2>
+        <button class="toggle" id="trendToggle" type="button" aria-pressed="false">Show table</button>
+      </div>
+      <div class="legend"><span><i class="sw-bar"></i>Revenue</span><span><i class="sw-line"></i>Net profit</span></div>
+      <div class="chart" id="trend"></div>
+      <div class="tbl-wrap" id="trendTable" hidden></div>
+    </section>
+
+    <section class="card" aria-labelledby="segH">
+      <div class="card-h">
+        <h2 id="segH">Gross margin by <span id="segLabel"></span></h2>
+      </div>
+      <div class="hint">Share of revenue left after direct costs this month. Bar length is margin, the figure on the right is revenue, and the dashed line is the business-wide average.</div>
+      <div class="chart" id="seg"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <section class="card" aria-labelledby="arH">
+      <div class="card-h">
+        <h2 id="arH">Who owes you money</h2>
+        <span id="arChip"></span>
+      </div>
+      <div class="chart" id="ar"></div>
+      <div class="tbl-wrap" id="arTable"></div>
+    </section>
+
+    <section class="card" aria-labelledby="noteH">
+      <h2 id="noteH">Month-end note</h2>
+      <div class="note" id="note" style="grid-template-columns:1fr"></div>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <span>Prepared by Nova Heritage Group LLC from records provided by management. These figures have not been audited, reviewed, or compiled, and no assurance is provided.</span>
+    <span id="generated"></span>
+  </footer>
+</div>
+
+<script>
+const DATA = {"config":{"client_name":"Summit Field Services LLC","period":"2026-09","segment_label":"Job type","sample":true,"notes":{"changed":["Revenue was $105k, down 4% from August as exterior season winds down. Net profit held at 26% of revenue.","Commercial projects earned a 37% gross margin, the lowest of the main job types, after materials ran over on the Lakewood HOA job.","Cash ended at $68k, up $8k for the month, after the truck loan payment and owner draw."],"watch":["Oak Street Apartments owes $2,750 that is past 60 days. Worth a call this week.","Bluestem Church is over 90 days at $1,850. Decide whether to send a final notice.","Last January revenue fell about 60% below the July peak and the month ran a small loss. Set aside cash now for payroll through the winter."]}},"monthly":[{"month":"2025-10","revenue":79120.0,"cost_of_sales":41140.0,"operating_expenses":21500.0,"cash_end":43560.0},{"month":"2025-11","revenue":65720.0,"cost_of_sales":35280.0,"operating_expenses":21800.0,"cash_end":40810.0},{"month":"2025-12","revenue":56020.0,"cost_of_sales":30150.0,"operating_expenses":22100.0,"cash_end":35380.0},{"month":"2026-01","revenue":47740.0,"cost_of_sales":24960.0,"operating_expenses":24800.0,"cash_end":26770.0},{"month":"2026-02","revenue":54740.0,"cost_of_sales":27640.0,"operating_expenses":22700.0,"cash_end":21690.0},{"month":"2026-03","revenue":73310.0,"cost_of_sales":36720.0,"operating_expenses":23000.0,"cash_end":21660.0},{"month":"2026-04","revenue":96700.0,"cost_of_sales":49740.0,"operating_expenses":23300.0,"cash_end":27170.0},{"month":"2026-05","revenue":102650.0,"cost_of_sales":54730.0,"operating_expenses":23600.0,"cash_end":33050.0},{"month":"2026-06","revenue":114450.0,"cost_of_sales":61780.0,"operating_expenses":23900.0,"cash_end":41370.0},{"month":"2026-07","revenue":120690.0,"cost_of_sales":63750.0,"operating_expenses":24200.0,"cash_end":51880.0},{"month":"2026-08","revenue":109400.0,"cost_of_sales":55700.0,"operating_expenses":24500.0,"cash_end":60440.0},{"month":"2026-09","revenue":105160.0,"cost_of_sales":52580.0,"operating_expenses":24800.0,"cash_end":68220.0}],"segments":[{"segment":"Residential repaint","revenue":51200.0,"direct_cost":25300.0},{"segment":"Commercial projects","revenue":33600.0,"direct_cost":21200.0},{"segment":"Maintenance contracts","revenue":14200.0,"direct_cost":2000.0},{"segment":"Small repairs","revenue":6160.0,"direct_cost":4080.0}],"ar":[{"customer":"Hillcrest Property Mgmt","current":12400.0,"d1_30":6200.0,"d31_60":0.0,"d61_90":0.0,"d90_plus":0.0},{"customer":"Lakewood HOA","current":4800.0,"d1_30":0.0,"d31_60":3900.0,"d61_90":0.0,"d90_plus":0.0},{"customer":"Ridgeview Dental","current":2600.0,"d1_30":0.0,"d31_60":0.0,"d61_90":0.0,"d90_plus":0.0},{"customer":"Oak Street Apartments","current":0.0,"d1_30":3100.0,"d31_60":0.0,"d61_90":2750.0,"d90_plus":0.0},{"customer":"Martinez residence","current":1900.0,"d1_30":0.0,"d31_60":0.0,"d61_90":0.0,"d90_plus":0.0},{"customer":"Bluestem Church","current":0.0,"d1_30":0.0,"d31_60":0.0,"d61_90":0.0,"d90_plus":1850.0},{"customer":"Other (6 customers)","current":3400.0,"d1_30":1200.0,"d31_60":600.0,"d61_90":0.0,"d90_plus":0.0}],"generated":"Oct 13, 2026"};
+
+(function () {
+  if (!DATA) { document.getElementById("app").innerHTML = "<p>No data loaded.</p>"; return; }
+  const $ = (id) => document.getElementById(id);
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const money = (n) => (n < 0 ? "-" : "") + "$" + Math.abs(Math.round(n)).toLocaleString("en-US");
+  const kfmt = (n) => { const a = Math.abs(n); const s = a >= 1000 ? (a / 1000).toFixed(a >= 100000 ? 0 : 1).replace(/\.0$/, "") + "k" : String(Math.round(a)); return (n < 0 ? "-$" : "$") + s; };
+  const pct = (n) => (Math.round(n * 10) / 10).toFixed(1).replace(/\.0$/, "") + "%";
+  const mName = (ym, long) => { const [y, m] = ym.split("-").map(Number); return new Date(y, m - 1, 1).toLocaleString("en-US", long ? { month: "long", year: "numeric" } : { month: "short" }); };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+
+  const months = DATA.monthly.map((r) => ({ ...r, gross: r.revenue - r.cost_of_sales, net: r.revenue - r.cost_of_sales - r.operating_expenses }));
+  const cur = months[months.length - 1], prev = months[months.length - 2];
+
+  $("client").textContent = DATA.config.client_name;
+  $("period").textContent = mName(DATA.config.period, true);
+  $("sampleFlag").hidden = !DATA.config.sample;
+  $("segLabel").textContent = (DATA.config.segment_label || "class").toLowerCase();
+  $("generated").textContent = "Generated " + DATA.generated;
+
+  /* ---------- Tiles ---------- */
+  const arTotal = DATA.ar.reduce((s, r) => s + r.current + r.d1_30 + r.d31_60 + r.d61_90 + r.d90_plus, 0);
+  const arOld = DATA.ar.reduce((s, r) => s + r.d61_90 + r.d90_plus, 0);
+  const deltaHTML = (now, before, goodWhenUp = true) => {
+    if (!before) return "";
+    const d = (now - before) / Math.abs(before) * 100;
+    const dir = Math.abs(d) < 0.5 ? "flat" : d > 0 ? "up" : "down";
+    const good = dir === "flat" ? "flat" : ((dir === "up") === goodWhenUp ? "up" : "down");
+    const arrow = dir === "up" ? "&#9650;" : dir === "down" ? "&#9660;" : "&#9644;";
+    return `<span class="delta ${good}">${arrow} ${pct(Math.abs(d))}</span><span>vs ${mName(prev.month)}</span>`;
+  };
+  const margin = cur.net / cur.revenue * 100;
+  const oldShare = arTotal ? arOld / arTotal * 100 : 0;
+  const tiles = [
+    { lbl: "Revenue", val: money(cur.revenue), sub: deltaHTML(cur.revenue, prev.revenue) },
+    { lbl: "Net profit", val: money(cur.net), sub: `<span class="chip ${margin >= 15 ? "good" : margin >= 5 ? "warn" : "bad"}">${pct(margin)} margin</span>` + deltaHTML(cur.net, prev.net) },
+    { lbl: "Cash at month end", val: money(cur.cash_end), sub: deltaHTML(cur.cash_end, prev.cash_end), spark: true },
+    { lbl: "Owed to you", val: money(arTotal), sub: `<span class="chip ${oldShare < 5 ? "good" : oldShare < 15 ? "warn" : "bad"}">${money(arOld)} past 60 days</span>` },
+  ];
+  $("tiles").innerHTML = tiles.map((t, i) => `<div class="tile"><div class="lbl">${t.lbl}</div><div class="val">${t.val}</div><div class="sub">${t.sub}</div>${t.spark ? '<svg class="spark" id="spark" aria-label="Cash at month end, last 12 months"></svg>' : ""}</div>`).join("");
+
+  function drawSpark() {
+    const svg = $("spark"); if (!svg) return;
+    svg.innerHTML = "";
+    const w = svg.clientWidth || 200, h = 34, pad = 4;
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    const vals = months.map((m) => m.cash_end), lo = Math.min(...vals), hi = Math.max(...vals);
+    const x = (i) => pad + i * (w - pad * 2) / (vals.length - 1);
+    const y = (v) => h - pad - (v - lo) / ((hi - lo) || 1) * (h - pad * 2);
+    const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(" ");
+    el("polygon", { points: `${x(0)},${h} ${pts} ${x(vals.length - 1)},${h}`, fill: css("--teal"), "fill-opacity": "0.12" }, svg);
+    el("polyline", { points: pts, fill: "none", stroke: css("--teal"), "stroke-width": "2", "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    el("circle", { cx: x(vals.length - 1), cy: y(vals[vals.length - 1]), r: 3.5, fill: css("--teal"), stroke: css("--sheet"), "stroke-width": "2" }, svg);
+  }
+
+  /* ---------- Shared tooltip ---------- */
+  function tipFor(box) { let t = box.querySelector(".tip"); if (!t) { t = document.createElement("div"); t.className = "tip"; t.hidden = true; box.appendChild(t); } return t; }
+  function showTip(box, html, x, y) { const t = tipFor(box); t.innerHTML = html; t.hidden = false; const bw = box.clientWidth; const tw = t.offsetWidth; const cx = Math.min(Math.max(x, tw / 2 + 2), bw - tw / 2 - 2); t.style.left = cx + "px"; t.style.top = y + "px"; }
+  function hideTip(box) { const t = box.querySelector(".tip"); if (t) t.hidden = true; }
+
+  /* ---------- Trend: revenue bars + net profit line, one $ axis ---------- */
+  function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); const n = v / p; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * p; }
+  function drawTrend() {
+    const box = $("trend"); box.querySelectorAll("svg").forEach((s) => s.remove());
+    const W = Math.max(box.clientWidth, 300), H = W < 480 ? 220 : 260, m = { t: 14, r: 8, b: 26, l: 46 };
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Revenue bars and net profit line for the last 12 months" });
+    box.prepend(svg);
+    const minNet = Math.min(0, ...months.map((d) => d.net));
+    const maxRev = Math.max(...months.map((d) => d.revenue));
+    const tstep = niceMax((maxRev - minNet) / 4);
+    const bottom = Math.floor(minNet / tstep) * tstep;
+    const top = Math.ceil(maxRev / tstep) * tstep;
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const y = (v) => m.t + (top - v) / (top - bottom) * ih;
+    const step = iw / months.length, bw = Math.min(28, step * 0.62);
+    const x = (i) => m.l + step * i + step / 2;
+    for (let v = bottom; v <= top + 1; v += tstep) {
+      el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: css("--rule"), "stroke-width": 1 }, svg);
+      el("text", { x: m.l - 6, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = kfmt(v);
+    }
+    if (bottom < 0) el("line", { x1: m.l, x2: W - m.r, y1: y(0), y2: y(0), stroke: css("--axis"), "stroke-width": 1 }, svg);
+    const rev = css("--rev"), prof = css("--profit"), sheet = css("--sheet");
+    months.forEach((d, i) => {
+      const y0 = y(0), y1 = y(d.revenue), r = Math.min(4, bw / 2);
+      el("path", { d: `M${x(i) - bw / 2},${y0} V${y1 + r} Q${x(i) - bw / 2},${y1} ${x(i) - bw / 2 + r},${y1} H${x(i) + bw / 2 - r} Q${x(i) + bw / 2},${y1} ${x(i) + bw / 2},${y1 + r} V${y0} Z`, fill: rev, "fill-opacity": i === months.length - 1 ? 1 : 0.55 }, svg);
+      if (W >= 480 || i % 2 === 1) el("text", { x: x(i), y: H - 8, "text-anchor": "middle" }, svg).textContent = mName(d.month);
+    });
+    el("polyline", { points: months.map((d, i) => `${x(i)},${y(d.net)}`).join(" "), fill: "none", stroke: prof, "stroke-width": 2, "stroke-linejoin": "round" }, svg);
+    months.forEach((d, i) => el("circle", { cx: x(i), cy: y(d.net), r: i === months.length - 1 ? 4.5 : 3, fill: prof, stroke: sheet, "stroke-width": 2 }, svg));
+    const last = months.length - 1;
+    const lx = x(last), ly = y(months[last].net);
+    el("text", { x: lx - 8, y: ly - 9, "text-anchor": "end", class: "lab-strong" }, svg).textContent = kfmt(months[last].net);
+    const cross = el("line", { y1: m.t, y2: m.t + ih, stroke: css("--axis"), "stroke-width": 1, opacity: 0 }, svg);
+    months.forEach((d, i) => {
+      const hit = el("rect", { x: m.l + step * i, y: m.t, width: step, height: ih, fill: "transparent", class: "hit", tabindex: 0, "aria-label": `${mName(d.month, true)}: revenue ${money(d.revenue)}, net profit ${money(d.net)}` }, svg);
+      const on = () => { cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("opacity", 1);
+        showTip(box, `<b>${mName(d.month, true)}</b><br><i style="background:${rev}"></i>Revenue ${money(d.revenue)}<br><i style="background:${prof}"></i>Net profit ${money(d.net)} (${pct(d.net / d.revenue * 100)})`, x(i) / W * box.clientWidth, Math.min(y(d.revenue), y(d.net)) / H * box.clientHeight); };
+      const off = () => { cross.setAttribute("opacity", 0); hideTip(box); };
+      hit.addEventListener("mouseenter", on); hit.addEventListener("focus", on);
+      hit.addEventListener("mouseleave", off); hit.addEventListener("blur", off);
+    });
+  }
+  $("trendTable").innerHTML = `<table><thead><tr><th>Month</th><th>Revenue</th><th>Direct costs</th><th>Overhead</th><th>Net profit</th><th>Margin</th><th>Cash</th></tr></thead><tbody>${months.map((d) => `<tr><td>${mName(d.month, true)}</td><td>${money(d.revenue)}</td><td>${money(d.cost_of_sales)}</td><td>${money(d.operating_expenses)}</td><td${d.net < 0 ? ' class="flag"' : ""}>${money(d.net)}</td><td>${pct(d.net / d.revenue * 100)}</td><td>${money(d.cash_end)}</td></tr>`).join("")}</tbody></table>`;
+  $("trendToggle").addEventListener("click", (e) => { const showing = !$("trendTable").hidden; $("trendTable").hidden = showing; $("trend").hidden = !showing; e.currentTarget.textContent = showing ? "Show table" : "Show chart"; e.currentTarget.setAttribute("aria-pressed", String(!showing)); if (showing) drawTrend(); });
+
+  /* ---------- Margin by segment ---------- */
+  function drawSeg() {
+    const box = $("seg"); box.querySelectorAll("svg").forEach((s) => s.remove());
+    const segs = DATA.segments.map((s) => ({ ...s, margin: (s.revenue - s.direct_cost) / s.revenue * 100 })).sort((a, b) => b.margin - a.margin);
+    const W = Math.max(box.clientWidth, 260), row = 46, H = segs.length * row + 6;
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Gross margin by " + (DATA.config.segment_label || "class") });
+    box.prepend(svg);
+    const valW = 64, iw = W - valW - 4, teal = css("--teal");
+    const avg = (cur.gross / cur.revenue) * 100;
+    segs.forEach((s, i) => {
+      const y0 = i * row;
+      el("text", { x: 0, y: y0 + 14, class: "lab" }, svg).textContent = s.segment;
+      el("text", { x: W, y: y0 + 14, "text-anchor": "end", class: "lab" }, svg).textContent = kfmt(s.revenue);
+      el("rect", { x: 0, y: y0 + 22, width: iw, height: 12, rx: 4, fill: css("--rule") }, svg);
+      const w = Math.max(6, iw * Math.max(0, s.margin) / 100);
+      el("rect", { x: 0, y: y0 + 22, width: w, height: 12, rx: 4, fill: teal, "fill-opacity": s.margin < avg - 5 ? 0.5 : 1 }, svg);
+      el("text", { x: Math.min(w + 6, iw - 34), y: y0 + 32, class: "lab-strong" }, svg).textContent = pct(s.margin);
+      const hit = el("rect", { x: 0, y: y0, width: W, height: row, fill: "transparent", class: "hit", tabindex: 0, "aria-label": `${s.segment}: ${pct(s.margin)} gross margin on ${money(s.revenue)} revenue` }, svg);
+      const on = () => showTip(box, `<b>${esc(s.segment)}</b><br>Revenue ${money(s.revenue)}<br>Direct costs ${money(s.direct_cost)}<br>Gross profit ${money(s.revenue - s.direct_cost)} (${pct(s.margin)})`, (w / W) * box.clientWidth, ((y0 + 20) / H) * box.clientHeight);
+      const off = () => hideTip(box);
+      hit.addEventListener("mouseenter", on); hit.addEventListener("focus", on); hit.addEventListener("mouseleave", off); hit.addEventListener("blur", off);
+    });
+    const ax = iw * avg / 100;
+    el("line", { x1: ax, x2: ax, y1: 18, y2: H - 2, stroke: css("--ink-2"), "stroke-width": 1, "stroke-dasharray": "3 3" }, svg);
+  }
+
+  /* ---------- AR aging ---------- */
+  const buckets = [["current", "Not yet due"], ["d1_30", "1–30 days late"], ["d31_60", "31–60 days late"], ["d61_90", "61–90 days late"], ["d90_plus", "Over 90 days late"]];
+  function drawAR() {
+    const box = $("ar"); box.querySelectorAll("svg").forEach((s) => s.remove());
+    const totals = buckets.map(([k, l]) => ({ k, l, v: DATA.ar.reduce((s, r) => s + r[k], 0) }));
+    const W = Math.max(box.clientWidth, 260), row = 30, H = totals.length * row;
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Receivables by age" });
+    box.prepend(svg);
+    const labW = Math.min(130, W * 0.38), valW = 64, iw = W - labW - valW - 8, mx = Math.max(...totals.map((t) => t.v)) || 1;
+    totals.forEach((t, i) => {
+      const y0 = i * row, late = t.k === "d61_90" || t.k === "d90_plus";
+      el("text", { x: 0, y: y0 + 18, class: "lab" }, svg).textContent = t.l;
+      const w = t.v ? Math.max(4, iw * t.v / mx) : 0;
+      if (w) el("rect", { x: labW, y: y0 + 7, width: w, height: 14, rx: 4, fill: late ? css("--bad") : css("--teal"), "fill-opacity": late ? 1 : (i === 0 ? 1 : 0.6) }, svg);
+      el("text", { x: labW + w + 6, y: y0 + 18, class: late && t.v ? "lab-strong" : "lab" }, svg).textContent = t.v ? money(t.v) : "$0";
+    });
+  }
+  const arRows = DATA.ar.map((r) => ({ ...r, total: r.current + r.d1_30 + r.d31_60 + r.d61_90 + r.d90_plus, old: r.d61_90 + r.d90_plus, oldest: r.d90_plus ? "Over 90" : r.d61_90 ? "61–90" : r.d31_60 ? "31–60" : r.d1_30 ? "1–30" : "Current" }))
+    .sort((a, b) => b.old - a.old || b.total - a.total);
+  $("arTable").innerHTML = `<table><thead><tr><th>Customer</th><th>Owes</th><th>Oldest</th></tr></thead><tbody>${arRows.map((r) => `<tr><td>${esc(r.customer)}</td><td>${money(r.total)}</td><td${r.old ? ' class="flag"' : ""}>${r.oldest}</td></tr>`).join("")}</tbody></table>`;
+  $("arChip").innerHTML = arOld ? `<span class="chip bad">&#9888; ${money(arOld)} needs follow-up</span>` : `<span class="chip good">&#10003; Nothing past 60 days</span>`;
+
+  /* ---------- Note ---------- */
+  const n = DATA.config.notes || {};
+  $("note").innerHTML = `<div><h3>What changed</h3><ul>${(n.changed || []).map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div><div><h3>What to watch</h3><ul>${(n.watch || []).map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>`;
+
+  const drawAll = () => { drawSpark(); if (!$("trend").hidden) drawTrend(); drawSeg(); drawAR(); };
+  drawAll();
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawAll, 120); });
+  if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", drawAll);
+  new MutationObserver(drawAll).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>
+
+</body>
+</html>
