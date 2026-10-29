@@ -1,6 +1,6 @@
 # Nova Heritage Group LLC
 
-> Accounting and tax firm in Lee's Summit, Missouri, serving small businesses of every kind and individuals across the Kansas City metro (Missouri and Kansas) and remotely nationwide. Monthly QuickBooks Online bookkeeping, catch-up and cleanup, payroll, sales tax, and business and personal tax preparation with e-filing, at fixed monthly fees. Works with contractors and trades, professional services, retail and e-commerce, real estate investors, new businesses, and individuals. Not a CPA firm; does not perform audits, reviews, compilations, or other attest services.
+> Accounting and tax firm in Lee's Summit, Missouri, serving small businesses of every kind and individuals across the Kansas City metro (Missouri and Kansas) and remotely nationwide. Monthly QuickBooks Online bookkeeping, catch-up and cleanup, payroll, sales tax, and business and personal tax preparation with e-filing, on flat monthly plans (an outsourced accounting department). Works with contractors and trades, professional services, retail and e-commerce, real estate investors, new businesses, and individuals. Not a CPA firm; does not perform audits, reviews, compilations, or other attest services.
 
 ## Key facts
 
@@ -12,23 +12,24 @@
 - Terms: fixed fees, month-to-month, 30 days' notice to cancel. Books closed by the 10th of each month.
 - Contact: book a 15-minute fit call at https://calendly.com/novaheritagegroup · greg@novaheritagegroupllc.com · (913) 213-3503
 
-## Pricing (published ranges; exact fee quoted after reviewing the books)
+## Pricing (flat monthly plans; month-to-month)
 
-- Essential bookkeeping: $300–350/month
-- Professional bookkeeping (most popular): $350–450/month
-- Premium bookkeeping (job costing, multiple entities): $450–750/month
-- Books + Tax bundle: from $500/month
-- Catch-up / cleanup: about 0.75 × monthly rate × months behind, roughly 50% off when a monthly plan starts
-- Payroll: +$150–400/month · Sales tax: +$75–150/month
-- Business tax return (1120-S, 1065, 1120): from $1,500
-- Personal tax return (1040, federal + state): from $250
+- Launch: $250/month. Monthly books, simple P&L, QuickBooks setup help. New and solo businesses, no employees, up to 50 transactions a month.
+- Essentials (most popular): $500/month. Launch plus payroll, payroll tax filings, W-2s and 1099s, monthly dashboard, closed by the 10th. 1–5 employees, up to 150 transactions a month.
+- Full Department: $1,000/month. Essentials plus sales tax filings, the business tax return (1120-S or 1065) and a quarterly planning call. 6–15 employees, up to 400 transactions a month.
+- Department + Insights: from $1,500/month. Full Department plus a live dashboard, monthly review call, budget vs. actual and a 12-month forecast.
+- Setup fee: $250 (Launch, Essentials) or $500 (Full Department and up).
+- Catch-up / cleanup: $375 per month behind ($500 minimum), $190 per month behind with a plan.
+- Personal tax return (1040, federal + Missouri): from $250; with Schedule C from $450.
+- Business tax return (1120-S, 1065): from $1,800.
+- Payroll only: from $175/month. QuickBooks setup and training: $450. S-corp election and payroll setup: $500. Dashboard and AI projects: from $2,000.
 
 ## Pages
 
 - [Home](https://novaheritagegroupllc.com/): services, pricing, process, FAQ
 - [About](https://novaheritagegroupllc.com/about/)
 - [Small business bookkeeping](https://novaheritagegroupllc.com/small-business-bookkeeping/)
-- [Tax preparation](https://novaheritagegroupllc.com/tax-preparation-lees-summit/): personal returns from $250, business returns from $1,500
+- [Tax preparation](https://novaheritagegroupllc.com/tax-preparation-lees-summit/): personal returns from $250, business returns from $1,800
 - [Payroll services](https://novaheritagegroupllc.com/payroll-services/)
 - [Bookkeeping in Lee's Summit, MO](https://novaheritagegroupllc.com/bookkeeping-lees-summit-mo/)
 - [Bookkeeping in Kansas City](https://novaheritagegroupllc.com/bookkeeping-kansas-city/)
