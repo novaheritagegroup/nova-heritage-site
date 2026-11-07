@@ -33,6 +33,14 @@
   ml('account', '2777234');
   </script>
   <!-- End MailerLite Universal -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJN5Z1L94"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1VJN5Z1L94');
+  </script>
 </head>
 <body>
 
@@ -101,6 +109,18 @@
     <div>General education, not tax or legal advice. Nova Heritage Group LLC is not a CPA firm and does not provide audit, review, compilation, or other attest services, or legal advice.</div>
   </div>
 </footer>
+<script>
+  // Fire a GA4 "generate_lead" event once when the MailerLite form shows its success message.
+  (function(){
+    var sent=false;
+    function check(){
+      if(sent) return;
+      var ok=document.querySelector('.ml-embedded .ml-form-successBody');
+      if(ok && ok.offsetParent!==null){ sent=true; if(window.gtag){ gtag('event','generate_lead',{form_name:'job_profit_calculator'}); } }
+    }
+    new MutationObserver(check).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['style','class']});
+  })();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "556317a571d24c27a049e573a9017c99"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
