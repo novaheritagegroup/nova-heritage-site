@@ -39,6 +39,8 @@ nav a { color: var(--slate); text-decoration: none; font-size: 0.92rem; font-wei
 nav a:hover { color: var(--teal); }
 nav .nav-cta { background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 0.88rem; white-space: nowrap; }
 nav .nav-cta:hover { background: var(--teal-deep); color: #fff; }
+nav .nav-login { border: 1px solid var(--line); padding: 7px 12px; border-radius: 6px; font-size: 0.88rem; white-space: nowrap; }
+nav .nav-login:hover { border-color: var(--teal); }
 
 .hero { background: var(--ink); color: #fff; position: relative; overflow: hidden; }
 .hero::before {
