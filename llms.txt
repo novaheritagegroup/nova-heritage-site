@@ -14,13 +14,14 @@
 
 ## Pricing (flat monthly plans; month-to-month)
 
-- Launch: $250/month. Monthly books, simple P&L, QuickBooks setup help. New and solo businesses, no employees, up to 50 transactions a month.
-- Essentials (most popular): $500/month. Launch plus payroll, payroll tax filings, W-2s and 1099s, monthly dashboard, closed by the 10th. 1–5 employees, up to 150 transactions a month.
-- Full Department: $1,000/month. Essentials plus sales tax filings, the business tax return (1120-S or 1065) and a quarterly planning call. 6–15 employees, up to 400 transactions a month.
+- Launch: $250/month. Monthly books, simple P&L, QuickBooks setup help, 1099s for up to 5 contractors. New and solo businesses, no employees, up to 50 transactions a month.
+- Essentials (most popular): $500/month. Launch plus payroll, payroll tax filings, W-2s and 1099s, sales tax filings (up to 2 states), monthly dashboard, closed by the 10th. 1–5 employees, up to 150 transactions a month.
+- Full Department: $1,000/month. Essentials plus the business tax return (1120-S or 1065) and a quarterly planning call. 6–15 employees, up to 400 transactions a month.
 - Department + Insights: from $1,500/month. Full Department plus a live dashboard, monthly review call, budget vs. actual and a 12-month forecast.
-- Setup fee: $250 (Launch, Essentials) or $500 (Full Department and up).
+- Setup fee: $250 (Launch, Essentials) or $500 (Full Department and up); waived when signing within 7 days of the fit call.
 - Catch-up / cleanup: $375 per month behind ($500 minimum), $190 per month behind with a plan.
-- Personal tax return (1040, federal + Missouri): from $250; with Schedule C from $450.
+- Personal tax return (1040, federal + Missouri): from $199; with Schedule C from $349; $149 for owners on a monthly plan.
+- 1099 preparation: $125 for up to 5 forms, $15 each after; free when starting a monthly plan by January 15.
 - Business tax return (1120-S, 1065): from $1,800.
 - Payroll only: from $175/month. QuickBooks setup and training: $450. S-corp election and payroll setup: $500. Dashboard and AI projects: from $2,000.
 
