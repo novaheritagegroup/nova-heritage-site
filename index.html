@@ -434,6 +434,21 @@
     .footer-links a { white-space: nowrap; }
     .chips { display:flex; flex-wrap:wrap; gap:8px; margin: 4px 0 28px; }
     .chips span { font-size:0.85rem; font-weight:500; padding:6px 12px; border-radius:999px; background:var(--teal-glow); color:var(--teal-deep); }
+    .finder-hint { margin-top: 14px; font-size: 0.95rem; }
+    .finder-hint a { color: inherit; opacity: 0.85; text-underline-offset: 3px; }
+    .finder { scroll-margin-top: 90px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px; margin-top: 36px; max-width: 760px; box-shadow: 0 10px 30px rgba(11,31,51,0.06); }
+    .finder h3 { font-size: 1.35rem; margin-bottom: 4px; }
+    .finder .step-count { color: var(--slate); font-size: 0.85rem; margin-bottom: 18px; }
+    .finder .q { font-weight: 600; margin-bottom: 12px; }
+    .finder .opts { display: flex; flex-wrap: wrap; gap: 10px; }
+    .finder .opts button { font: inherit; font-size: 0.95rem; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; transition: border-color .15s, background .15s; }
+    .finder .opts button:hover, .finder .opts button:focus-visible { border-color: var(--teal); background: var(--teal-glow); outline: none; }
+    .finder .back { background: none; border: 0; color: var(--slate); font: inherit; font-size: 0.85rem; cursor: pointer; margin-top: 16px; padding: 0; text-decoration: underline; }
+    .finder .result-plan { font-size: 1.5rem; font-weight: 700; margin: 6px 0 2px; }
+    .finder .result-price { color: var(--teal); font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; }
+    .finder .result ul { margin: 10px 0 18px 18px; color: var(--slate); }
+    .finder .result li { margin-bottom: 4px; }
+    .finder .fine { color: var(--slate); font-size: 0.82rem; margin-top: 14px; }
     .faq { max-width: 760px; }
     .footer-links { margin-bottom: 6px; }
     .footer-links a { color: var(--slate); }
@@ -513,12 +528,13 @@
   <div class="wrap">
     <p class="hero-brand rise">Nova <span>Heritage</span> Group</p>
     <h1 class="rise-delay">Know what your business actually makes, and never dread tax season again.</h1>
-    <p class="lede rise-delay-2">Accounting and tax for small businesses across the Kansas City metro and anywhere in the U.S. Books closed by the 10th, a monthly profit dashboard, payroll and sales tax handled, and your returns prepared and e-filed. One firm, fixed fees.</p>
+    <p class="lede rise-delay-2">Accounting and tax for contractors, the trades and small businesses across the Kansas City metro and anywhere in the U.S. Books closed by the 10th, a monthly profit dashboard, payroll and sales tax handled, and your returns prepared and e-filed. One firm, fixed fees.</p>
     <a class="season rise-delay-2" href="#offer" style="text-decoration:none;">Year-end offer: start a monthly plan by December 15 →</a>
     <div class="cta-row rise-delay-2">
       <a class="cta" href="#free-check">Get a free Books Health Check</a>
       <a class="cta ghost" href="https://calendly.com/greg-novaheritagegroupllc/fit-call" target="_blank" rel="noopener">Book a 15-minute fit call</a>
     </div>
+    <p class="rise-delay-2 finder-hint"><a href="#plan-finder">Not sure what you need? Answer 4 quick questions →</a></p>
   </div>
 </section>
 
@@ -616,6 +632,14 @@
       <div><strong>Real estate investors &amp; landlords</strong><span>Income and expenses tracked by property, loans split into principal and interest, and Schedule E or entity returns prepared from clean books.</span></div>
       <div><strong>New businesses &amp; growing teams</strong><span>QuickBooks set up right from day one, first employees added to payroll, and a plan for estimated taxes before the first April.</span></div>
       <div><strong>Individuals &amp; families</strong><span>Personal returns, federal and state, even if you don't own a business. <a href="/tax-preparation-lees-summit/">Tax preparation →</a></span></div>
+    </div>
+
+    <div class="finder" id="plan-finder" aria-live="polite">
+      <h3>Find your plan in 30 seconds</h3>
+      <p class="step-count" id="finderCount">4 quick questions. No email required.</p>
+      <div id="finderBody">
+        <noscript><p>Tell us about your business on a <a href="https://calendly.com/greg-novaheritagegroupllc/fit-call">15-minute fit call</a>.</p></noscript>
+      </div>
     </div>
   </div>
 </section>
@@ -827,6 +851,81 @@
 </footer>
 
 <script>
+  /* Plan finder: recommends one plan at one price. Prices must match standards/pricing.md in nhg_main. */
+  (function () {
+    var CAL = "https://calendly.com/greg-novaheritagegroupllc/fit-call";
+    var Q = [
+      { key: "need", q: "What do you need help with most?", opts: [
+        ["books", "Monthly books"], ["behind", "Catching up on books that are behind"],
+        ["payroll", "Payroll"], ["tax", "Just my tax return"], ["unsure", "Not sure yet"] ] },
+      { key: "now", q: "Who handles your books today?", opts: [
+        ["me", "Me, or nobody"], ["inhouse", "My spouse or someone in-house"],
+        ["bookkeeper", "An outside bookkeeper"], ["cpa_year", "A CPA, mostly at tax time"],
+        ["cpa_month", "A CPA, every month"] ] },
+      { key: "emp", q: "How many people are on payroll?", opts: [
+        ["0", "None (just me, or 1099 subs)"], ["1-5", "1 to 5"], ["6-15", "6 to 15"], ["16+", "16 or more"] ] },
+      { key: "stax", q: "Do you collect sales tax?", opts: [
+        ["yes", "Yes"], ["no", "No"], ["unsure", "Not sure"] ] }
+    ];
+    var A = {}, step = 0;
+    var body = document.getElementById("finderBody"), count = document.getElementById("finderCount");
+    if (!body) return;
+
+    function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+
+    function render() {
+      body.innerHTML = "";
+      if (A.need === "tax" && step === 1) step = Q.length; // tax-only: skip to result
+      if (step >= Q.length) return result();
+      var item = Q[step];
+      count.textContent = "Question " + (step + 1) + " of " + Q.length;
+      body.appendChild(el("p", "q", item.q));
+      var opts = el("div", "opts");
+      item.opts.forEach(function (o) {
+        var b = el("button", null, o[1]); b.type = "button";
+        b.addEventListener("click", function () { A[item.key] = o[0]; step++; render(); });
+        opts.appendChild(b);
+      });
+      body.appendChild(opts);
+      if (step > 0) { var back = el("button", "back", "← Back"); back.type = "button"; back.addEventListener("click", function () { step--; render(); }); body.appendChild(back); }
+    }
+
+    function pick() {
+      if (A.need === "tax") return { plan: "Tax preparation", price: "Personal from $199 · Business from $850",
+        why: ["Personal 1040 + Missouri from $199 ($349 with a Schedule C)", "Business returns (1120-S or 1065) from $850", "Monthly-plan clients pay less: $149 personal, $650 business"] };
+      var emp = A.emp, r;
+      if (emp === "16+") r = { plan: "Department + Insights", price: "from $1,500/mo, quoted", why: ["Books, payroll, sales tax and your business return", "Live profit dashboard and a monthly review call", "Budget vs. actual and a 12-month forecast"] };
+      else if (emp === "6-15") r = { plan: "Full Department", price: "$1,000/mo", why: ["Everything in Essentials", "Your business tax return (1120-S or 1065) included", "A quarterly planning call"] };
+      else if (emp === "1-5" || A.need === "payroll") r = { plan: "Essentials", price: "$500/mo", why: ["Monthly books, closed by the 10th", "Payroll, payroll tax filings, W-2s and 1099s", "Sales tax filings for up to 2 states"] };
+      else r = { plan: "Launch", price: A.stax === "yes" ? "$250/mo + $75/mo for sales tax filing" : "$250/mo", why: ["Monthly books and reconciliations", "A simple monthly profit and loss report", "1099s for up to 5 contractors"] };
+      if (A.need === "behind") r.why.push("Plus a fixed catch-up quote, about half price when you start a plan");
+      if (A.now === "cpa_year") r.why.push("Keep your CPA for the return. Your CPA gets clean, reconciled books at year end");
+      return r;
+    }
+
+    function result() {
+      var r = pick();
+      count.textContent = "Your starting point";
+      var wrap = el("div", "result");
+      wrap.appendChild(el("p", "q", "Based on your answers, start with:"));
+      wrap.appendChild(el("p", "result-plan", r.plan));
+      wrap.appendChild(el("p", "result-price", r.price));
+      var ul = el("ul"); r.why.forEach(function (w) { ul.appendChild(el("li", null, w)); }); wrap.appendChild(ul);
+      var summary = "Plan finder: need=" + A.need + "; books today=" + (A.now || "-") + "; payroll=" + (A.emp || "-") + "; sales tax=" + (A.stax || "-") + "; suggested=" + r.plan;
+      var cta = el("a", "cta", "Book a 15-minute fit call");
+      cta.href = CAL + "?a1=" + encodeURIComponent(summary); cta.target = "_blank"; cta.rel = "noopener";
+      wrap.appendChild(cta);
+      wrap.appendChild(el("p", "fine", "This is a starting point, not a quote. The fit call confirms the plan and the price, and the setup fee is waived if you sign within 7 days of it."));
+      var again = el("button", "back", "Start over"); again.type = "button";
+      again.addEventListener("click", function () { A = {}; step = 0; render(); });
+      wrap.appendChild(again);
+      body.appendChild(wrap);
+      if (window.gtag) gtag("event", "plan_finder_complete", { need: A.need, books_today: A.now || "", payroll: A.emp || "", sales_tax: A.stax || "", suggested_plan: r.plan });
+    }
+
+    render();
+  })();
+
   const bar = document.getElementById("topbar");
   const onScroll = () => bar.classList.toggle("scrolled", window.scrollY > 8);
   onScroll();
