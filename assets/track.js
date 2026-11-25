@@ -1,5 +1,5 @@
 /* NHG conversion tracking
- * - GA4 click events (book_call_click, phone_call_click, email_click)
+ * - GA4 click events (book_call_click, begin_checkout, phone_call_click, email_click)
  * - Google Ads conversion when a Calendly fit call is actually booked
  *   (Calendly opens as a popup on our site so we can see the booking event)
  */
@@ -30,6 +30,9 @@
         e.preventDefault();
         window.Calendly.initPopupWidget({ url: href });
       }
+    } else if (href.indexOf('connect.intuit.com') !== -1) {
+      // QuickBooks payment link (Autopilot Books sign-up)
+      if (window.gtag) gtag('event', 'begin_checkout', { link_url: href, page_path: location.pathname, value: 149, currency: 'USD', items: [{ item_name: 'Autopilot Books - first month' }] });
     } else if (href.indexOf('tel:') === 0) {
       if (window.gtag) gtag('event', 'phone_call_click', params);
     } else if (href.indexOf('mailto:') === 0) {
