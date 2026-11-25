@@ -793,11 +793,11 @@
       <div>
         <span class="when">New · One-person S-corps</span>
         <h3>S-Corp Owner <span class="ap-price">$399 <span>/mo</span></span></h3>
-        <p>For an S-corp where you're the only one on payroll. I close your books by the 10th, run your owner payroll with every payroll tax filing and your W-2, prepare your federal 1120-S and Missouri S-corp return, and check every quarter that your salary is still reasonable. Have a crew? Full Department covers you.</p>
+        <p>For an S-corp where you're the only one on payroll. I close your books by the 10th, run your owner payroll with every payroll tax filing and your W-2, prepare your federal 1120-S and Missouri S-corp return, and check every quarter that your salary is still reasonable. One-time setup is $500, including your S-corp election if you still need one. Have a crew? Full Department covers you.</p>
       </div>
       <a class="cta" href="https://calendly.com/greg-novaheritagegroupllc/fit-call" target="_blank" rel="noopener">Book a fit call</a>
     </div>
-    <p class="note" style="margin-bottom:28px;">Plan limits: Autopilot Books up to 40 transactions a month with one bank account, one card, no employees and no sales tax; Launch up to 50 transactions a month; S-Corp Owner up to 50 with you as the only person on payroll; Essentials up to 150 and 5 employees; Full Department up to 400 and 15 employees. Sales tax filing covers up to 2 states (Missouri and Kansas for most clients); each additional state is $50 a month. Launch clients can add sales tax filing for $75 a month. A one-time setup fee ($250, or $500 for Full Department and up) covers registrations and onboarding, and it is waived when you sign within 7 days of your fit call. If you grow past a plan, I'll talk with you before anything changes.</p>
+    <p class="note" style="margin-bottom:28px;">Plan limits: Autopilot Books up to 40 transactions a month with one bank account, one card, no employees and no sales tax; Launch up to 50 transactions a month; S-Corp Owner up to 50 with you as the only person on payroll; Essentials up to 150 and 5 employees; Full Department up to 400 and 15 employees. Sales tax filing covers up to 2 states (Missouri and Kansas for most clients); each additional state is $50 a month. Launch clients can add sales tax filing for $75 a month. A one-time setup fee ($250, or $500 for Full Department and up) covers registrations and onboarding, and it is waived when you sign within 7 days of your fit call. S-Corp Owner has its own $500 setup for your S-corp election and owner payroll. If you grow past a plan, I'll talk with you before anything changes.</p>
 
     <p class="price-group">Tax preparation only</p>
     <div class="tax-grid">
@@ -811,7 +811,7 @@
       <div><strong>Catch-up / cleanup</strong>: $375 per month behind ($500 minimum); about half that when you start a plan</div>
       <div><strong>Payroll only</strong>: from $175/mo · <strong>Payroll setup and state registrations</strong>: $300</div>
       <div><strong>QuickBooks setup and training</strong>: $450 · <strong>1099 preparation</strong>: $125 for up to 5 forms, $15 each after (free when you start a monthly plan by January 15)</div>
-      <div><strong>S-corp election and payroll setup</strong>: $500 · <strong>Profit &amp; Cash Review</strong>: $200, refunded if it isn't worth it to you</div>
+      <div><strong>S-corp election and payroll setup</strong>: $750, or $500 with a monthly plan · <strong>Profit &amp; Cash Review</strong>: $200, refunded if it isn't worth it to you</div>
       <div><strong>Owner Dashboard &amp; Cash Review</strong>: $125/mo, a monthly dashboard and review for owners who keep their own bookkeeper</div>
     </div>
     <p class="note">Start a monthly plan within 60 days of any one-time service and get $250 off. Fixed fees by engagement letter. Net 15. Projects: 50% deposit, 50% on delivery. Now booking for the 2027 tax season.</p>
@@ -945,7 +945,7 @@
       var emp = A.emp, r;
       if (emp === "16+") r = { plan: "Department + Insights (fractional CFO)", price: "from $1,500/mo, quoted", why: ["Books, payroll, sales tax and your business return", "Live profit dashboard and a monthly review call", "Budget vs. actual and a 12-month forecast"] };
       else if (emp === "6-15") r = { plan: "Full Department", price: "$1,000/mo", why: ["Everything in Essentials", "Your business tax return (1120-S or 1065) included", "A quarterly planning call"] };
-      else if (emp === "0" && A.need === "payroll") r = { plan: "S-Corp Owner", price: "$399/mo", why: ["For an S-corp where you're the only one on payroll", "Books closed by the 10th, plus your owner payroll, payroll tax filings and W-2", "Your federal and Missouri S-corp returns and a quarterly reasonable-salary check"] };
+      else if (emp === "0" && A.need === "payroll") r = { plan: "S-Corp Owner", price: "$399/mo", why: ["For an S-corp where you're the only one on payroll", "Books closed by the 10th, plus your owner payroll, payroll tax filings and W-2", "Your federal and Missouri S-corp returns and a quarterly reasonable-salary check"], fine: "This is a starting point, not a quote. The fit call confirms the plan and the price. S-Corp Owner has a one-time $500 setup for your S-corp election and owner payroll." };
       else if (emp === "1-5" || A.need === "payroll") r = { plan: "Essentials", price: "$500/mo", why: ["Monthly books, closed by the 10th", "Payroll, payroll tax filings, W-2s and 1099s", "Sales tax filings for up to 2 states"] };
       else if (emp === "0" && A.stax === "no" && (A.need === "books" || A.need === "unsure") && (A.now === "me" || A.now === "inhouse")) r = { plan: "Autopilot Books", price: "$149/mo", href: "/autopilot-books/", cta: "See Autopilot Books", why: ["Bank and card feeds categorized automatically, reviewed every month", "Profit and loss report and dashboard by the 10th", "Email support, up to 40 transactions a month. Need calls or 1099s? Launch is $250/mo"] };
       else r = { plan: "Launch", price: A.stax === "yes" ? "$250/mo + $75/mo for sales tax filing" : "$250/mo", why: ["Monthly books and reconciliations", "A simple monthly profit and loss report", "1099s for up to 5 contractors"] };
@@ -967,7 +967,7 @@
       var cta = el("a", "cta", r.cta || "Book a 15-minute fit call");
       if (r.href) { cta.href = r.href; } else { cta.href = CAL + "?a1=" + encodeURIComponent(summary); cta.target = "_blank"; cta.rel = "noopener"; }
       wrap.appendChild(cta);
-      wrap.appendChild(el("p", "fine", "This is a starting point, not a quote. The fit call confirms the plan and the price, and the setup fee is waived if you sign within 7 days of it."));
+      wrap.appendChild(el("p", "fine", r.fine || "This is a starting point, not a quote. The fit call confirms the plan and the price, and the setup fee is waived if you sign within 7 days of it."));
       var again = el("button", "back", "Start over"); again.type = "button";
       again.addEventListener("click", function () { A = {}; step = 0; render(); });
       wrap.appendChild(again);
