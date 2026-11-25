@@ -1,0 +1,67 @@
+# Tells Bing (and other IndexNow search engines) about changed pages after each
+# push to main, so new or updated pages get crawled in days instead of weeks.
+# Run it by hand (Actions tab > Ping IndexNow > Run workflow) to submit every
+# page in sitemap.xml, for example right after adding the site to Bing.
+name: Ping IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SITE: https://novaheritagegroupllc.com
+  HOST: novaheritagegroupllc.com
+  INDEXNOW_KEY: 7dcc2ebc61735333b775f913d9d4e50f
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Work out which page URLs changed
+        id: urls
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's/<loc>//' -e 's#</loc>##' > urls.txt
+          else
+            git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" \
+              | grep -E '(^|/)index\.html$' \
+              | sed -e 's#index\.html$##' -e "s#^#${SITE}/#" > urls.txt || true
+            if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qx 'sitemap.xml'; then
+              echo "${SITE}/sitemap.xml" >> urls.txt
+            fi
+          fi
+          sort -u urls.txt -o urls.txt
+          echo "Pages to submit:"; cat urls.txt
+          echo "count=$(wc -l < urls.txt | tr -d ' ')" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for the site to finish deploying
+        if: steps.urls.outputs.count != '0'
+        run: |
+          sleep 90
+          for i in $(seq 1 20); do
+            if curl -fsS "${SITE}/${INDEXNOW_KEY}.txt" | grep -qx "${INDEXNOW_KEY}"; then
+              echo "Key file is live."; exit 0
+            fi
+            sleep 15
+          done
+          echo "Key file never went live at ${SITE}/${INDEXNOW_KEY}.txt"; exit 1
+
+      - name: Send to IndexNow
+        if: steps.urls.outputs.count != '0'
+        run: |
+          jq -Rn --arg host "$HOST" --arg key "$INDEXNOW_KEY" \
+            --arg loc "${SITE}/${INDEXNOW_KEY}.txt" \
+            '{host: $host, key: $key, keyLocation: $loc, urlList: [inputs | select(length > 0)]}' \
+            < urls.txt > payload.json
+          code=$(curl -sS -o response.txt -w '%{http_code}' -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' --data @payload.json)
+          echo "IndexNow answered HTTP $code"; cat response.txt || true
+          case "$code" in 200|202) ;; *) exit 1 ;; esac
