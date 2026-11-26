@@ -103,3 +103,16 @@ footer div { margin: 4px 0; }
 .founder img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); box-shadow: 0 2px 10px rgba(11,31,51,0.12); flex-shrink: 0; }
 .founder h2 { margin: 0; }
 @media (max-width: 560px) { .founder { flex-direction: column; align-items: flex-start; gap: 14px; } .founder img { width: 112px; height: 112px; } }
+
+/* Call buttons and sticky call bar (Google ads landing page fixes) */
+.text-link { color: var(--teal); font-weight: 600; text-decoration: none; align-self: center; }
+.hero .text-link { color: #9fddd9; }
+.cta-band .btn { margin: 4px; }
+.sticky-call { display: none; }
+@media (max-width: 560px) {
+  .sticky-call { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 16px; background: var(--white); border-top: 1px solid var(--line); z-index: 50; }
+  .sticky-call .btn { flex: 1; text-align: center; }
+  .sticky-call .btn.ghost { color: var(--teal); border-color: var(--teal); }
+  body { padding-bottom: 72px; }
+}
+.offer-strip { background: var(--teal-glow); color: var(--ink); font-weight: 600; text-align: center; padding: 12px 0; }
