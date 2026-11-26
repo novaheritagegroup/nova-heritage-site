@@ -24,7 +24,7 @@
 - Setup fee: none for Autopilot Books or Launch. $250 (Essentials) or $500 (Full Department and up); waived when signing within 7 days of the fit call.
 - Catch-up / cleanup: 0.75 times the monthly fee of the plan that fits, per month behind, with no minimum: about $112 per month behind on Autopilot Books, $188 on Launch, $375 on Essentials. Half that when a monthly plan starts by December 15.
 - Personal tax return (1040, federal + Missouri): from $199; with Schedule C from $349; $149 for owners on a monthly plan ($249 with Schedule C).
-- 1099 preparation: $125 for up to 5 forms, $15 each after; free when starting a monthly plan by January 15.
+- 1099 preparation: $125 for up to 5 forms, $15 each after; free on Launch and higher plans started by January 15 (Autopilot Books clients pay the $125).
 - Business tax return (1120-S, 1065): from $850; $650 for monthly-plan clients; included in S-Corp Owner and Full Department.
 - Payroll only: from $175/month. QuickBooks setup and training: $450. S-corp election and payroll setup: $750, or $500 with a monthly plan. Profit & Cash Review: $200 one-time (last 12 months of profit by month and job, 13-week cash forecast, 60-minute walkthrough, top 3 fixes), refunded if the client doesn't find it worth it; $250 off a monthly plan started within 60 days.
 
