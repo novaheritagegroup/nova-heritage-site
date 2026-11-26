@@ -84,7 +84,7 @@
           {"@type": "Question", "name": "What software do you use?", "acceptedAnswer": {"@type": "Answer", "text": "QuickBooks Online and QuickBooks Payroll for most clients, and Xero when you're already on it. Returns are prepared in professional tax software and filed electronically."}},
           {"@type": "Question", "name": "What's in the monthly dashboard?", "acceptedAnswer": {"@type": "Answer", "text": "A one-page view of revenue, net profit, cash, and who owes you money, plus margin by job type, client, or product line and a short note on what changed and what to watch. Launch plans get a simpler snapshot, and Department + Insights adds a live version with budget vs. actual and a 12-month forecast."}},
           {"@type": "Question", "name": "How does the guarantee work?", "acceptedAnswer": {"@type": "Answer", "text": "If your books for a month aren't closed by the 10th of the next month, that month's bookkeeping fee is free. The clock starts once I have your bank and card access and any documents I asked for. And if after your first month on any plan you don't want to keep going, I'll refund that first month."}},
-          {"@type": "Question", "name": "What is Autopilot Books?", "acceptedAnswer": {"@type": "Answer", "text": "A $149 a month plan for simple businesses with no employees and no sales tax, up to 40 transactions a month with one bank account and one card. Bank and card feeds are categorized automatically, I review the books every month, and your profit and loss report and dashboard arrive by the 10th. Support is by email."}},
+          {"@type": "Question", "name": "What is Autopilot Books?", "acceptedAnswer": {"@type": "Answer", "text": "A $149 a month plan for simple businesses with no employees and no sales tax, up to 75 transactions a month with one bank account and one card. Bank and card feeds are categorized automatically, I review the books every month, and your profit and loss report and dashboard arrive by the 10th. Support is by email."}},
           {"@type": "Question", "name": "Is there a contract?", "acceptedAnswer": {"@type": "Answer", "text": "Monthly plans are month-to-month with 30 days' written notice to cancel. Tax preparation is a separate fixed-fee engagement for each tax year."}}
         ]
       }
@@ -730,7 +730,7 @@
       <div>
         <span class="when">New · No employees, no sales tax</span>
         <h3>Autopilot Books <span class="ap-price">$149 <span>/mo</span></span></h3>
-        <p>Your bank and card feeds are categorized automatically, I review your books every month, and your profit and loss report and dashboard land in your inbox by the 10th. Support is by email. Up to 40 transactions a month, one bank account and one card.</p>
+        <p>Your bank and card feeds are categorized automatically, I review your books every month, and your profit and loss report and dashboard land in your inbox by the 10th. Support is by email. Up to 75 transactions a month, one bank account and one card.</p>
       </div>
       <a class="cta" href="/autopilot-books/">See Autopilot Books</a>
     </div>
@@ -797,7 +797,7 @@
       </div>
       <a class="cta" href="https://calendly.com/greg-novaheritagegroupllc/fit-call" target="_blank" rel="noopener">Book a fit call</a>
     </div>
-    <p class="note" style="margin-bottom:28px;">Plan limits: Autopilot Books up to 40 transactions a month with one bank account, one card, no employees and no sales tax; Launch up to 100 transactions a month; S-Corp Owner up to 50 with you as the only person on payroll; Essentials up to 150 and 5 employees; Full Department up to 400 and 15 employees. Sales tax filing covers up to 2 states (Missouri and Kansas for most clients); each additional state is $50 a month. Launch clients can add sales tax filing for $75 a month. A one-time setup fee ($250, or $500 for Full Department and up) covers registrations and onboarding, and it is waived when you sign within 7 days of your fit call. S-corp election and owner payroll setup is $750 on its own, or $500 with the S-Corp Owner plan. If you grow past a plan, I'll talk with you before anything changes.</p>
+    <p class="note" style="margin-bottom:28px;">Plan limits: Autopilot Books up to 75 transactions a month with one bank account, one card, no employees and no sales tax; Launch up to 100 transactions a month; S-Corp Owner up to 50 with you as the only person on payroll; Essentials up to 150 and 5 employees; Full Department up to 400 and 15 employees. Sales tax filing covers up to 2 states (Missouri and Kansas for most clients); each additional state is $50 a month. Launch clients can add sales tax filing for $75 a month. A one-time setup fee ($250, or $500 for Full Department and up) covers registrations and onboarding, and it is waived when you sign within 7 days of your fit call. S-corp election and owner payroll setup is $750 on its own, or $500 with the S-Corp Owner plan. If you grow past a plan, I'll talk with you before anything changes.</p>
 
     <p class="price-group">Tax preparation only</p>
     <div class="tax-grid">
@@ -869,7 +869,7 @@
       </details>
       <details>
         <summary>What is Autopilot Books?</summary>
-        <p>A $149 a month plan for simple businesses with no employees and no sales tax, up to 40 transactions a month with one bank account and one card. Bank and card feeds are categorized automatically, I review the books every month, and your profit and loss report and dashboard arrive by the 10th. Support is by email. <a href="/autopilot-books/">See what's included</a>.</p>
+        <p>A $149 a month plan for simple businesses with no employees and no sales tax, up to 75 transactions a month with one bank account and one card. Bank and card feeds are categorized automatically, I review the books every month, and your profit and loss report and dashboard arrive by the 10th. Support is by email. <a href="/autopilot-books/">See what's included</a>.</p>
       </details>
       <details>
         <summary>Is there a contract?</summary>
@@ -947,7 +947,7 @@
       else if (emp === "6-15") r = { plan: "Full Department", price: "$1,000/mo", why: ["Everything in Essentials", "Your business tax return (1120-S or 1065) included", "A quarterly planning call"] };
       else if (emp === "0" && A.need === "payroll") r = { plan: "S-Corp Owner", price: "$399/mo", why: ["For an S-corp where you're the only one on payroll", "Books closed by the 10th, plus your owner payroll, payroll tax filings and W-2", "Your federal and Missouri S-corp returns and a quarterly reasonable-salary check"], fine: "This is a starting point, not a quote. The fit call confirms the plan and the price. S-corp election and owner payroll setup is $500 with this plan, instead of $750 on its own." };
       else if (emp === "1-5" || A.need === "payroll") r = { plan: "Essentials", price: "$500/mo", why: ["Monthly books, closed by the 10th", "Payroll, payroll tax filings, W-2s and 1099s", "Sales tax filings for up to 2 states"] };
-      else if (emp === "0" && A.stax === "no" && (A.need === "books" || A.need === "unsure") && (A.now === "me" || A.now === "inhouse")) r = { plan: "Autopilot Books", price: "$149/mo", href: "/autopilot-books/", cta: "See Autopilot Books", why: ["Bank and card feeds categorized automatically, reviewed every month", "Profit and loss report and dashboard by the 10th", "Email support, up to 40 transactions a month. Need calls or 1099s? Launch is $250/mo"] };
+      else if (emp === "0" && A.stax === "no" && (A.need === "books" || A.need === "unsure") && (A.now === "me" || A.now === "inhouse")) r = { plan: "Autopilot Books", price: "$149/mo", href: "/autopilot-books/", cta: "See Autopilot Books", why: ["Bank and card feeds categorized automatically, reviewed every month", "Profit and loss report and dashboard by the 10th", "Email support, up to 75 transactions a month. Need calls or 1099s? Launch is $250/mo"] };
       else r = { plan: "Launch", price: A.stax === "yes" ? "$250/mo + $75/mo for sales tax filing" : "$250/mo", why: ["Monthly books and reconciliations", "A simple monthly profit and loss report", "1099s for up to 5 contractors"] };
       if (r.plan === "Launch" && emp === "0") r.why.push("Taxed as an S-corp with just you on payroll? My S-Corp Owner plan is $399/mo with your owner payroll and S-corp returns");
       if (A.need === "behind") r.why.push("Plus a fixed catch-up quote, about half price when you start a plan");
